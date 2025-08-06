@@ -18,7 +18,7 @@ deleted_messages = {}
 warn_time_chat_filter = {}
 warn_time_anti_spam = {}
 warn_time_anti_link = {}
-current_dir = os.path.dirname(os.path.abspath('/home/ore/Documents/pixel/core/arial.ttf'))
+current_dir = os.path.dirname(os.path.abspath(f'{global_path}/core/arial.ttf'))
 font_path = os.path.join(current_dir, 'arial.ttf')
 class client(commands.AutoShardedBot):
     def __init__(self):
@@ -277,7 +277,7 @@ class client(commands.AutoShardedBot):
         if welcomer_channel_id:
             welcomer_channel = member.guild.get_channel(welcomer_channel_id)
             if welcomer_channel:
-                existing_image = Image.open('/home/ore/Documents/pixel/core/template_welcome.png')
+                existing_image = Image.open(f'{global_path}core/template_welcome.png')
                 font = ImageFont.truetype(font_path, 12)
                 draw = ImageDraw.Draw(existing_image)
                 server = member.guild
@@ -311,7 +311,7 @@ class client(commands.AutoShardedBot):
                 )
                 embed_log.add_field(name="Account creation date", value=age)
                 await audit_log_channel.send(embed=embed_log)
-    current_dir = os.path.dirname(os.path.abspath('/home/ore/Documents/pixel/core/arial.ttf'))
+    current_dir = os.path.dirname(os.path.abspath(f'{global_path}core/arial.ttf'))
     font_path = os.path.join(current_dir, 'arial.ttf')
     async def on_member_remove(self, member):
         guild_id = str(member.guild.id)
@@ -319,7 +319,7 @@ class client(commands.AutoShardedBot):
         if farwell_channel_id:
             farwell_channel = member.guild.get_channel(farwell_channel_id)
             if farwell_channel:
-                existing_image = Image.open('/home/ore/Documents/pixel/core/template_goodbye.png')
+                existing_image = Image.open(f'{global_path}/core/template_goodbye.png')
                 font = ImageFont.truetype(font_path, 12)
                 draw = ImageDraw.Draw(existing_image)
                 server = member.guild

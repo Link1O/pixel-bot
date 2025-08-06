@@ -826,12 +826,12 @@ class moderation(commands.Cog):
         if interaction.user.guild_permissions.kick_members or interaction.user.guild_permissions.ban_members or interaction.user.guild_permissions.manage_roles or interaction.user.guild_permissions.manage_messages:
             warning_id = ''.join(random.choices(string.ascii_letters + string.digits, k=15))
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -902,12 +902,12 @@ class moderation(commands.Cog):
     async def warnings(self, interaction: discord.Interaction, member: discord.Member):
         if interaction.user.guild_permissions.kick_members or interaction.user.guild_permissions.ban_members or interaction.user.guild_permissions.manage_roles or interaction.user.guild_permissions.manage_messages:
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1040,12 +1040,12 @@ class moderation(commands.Cog):
     async def unwarn(self, interaction: discord.Interaction, warning_id: str):
         if interaction.user.guild_permissions.kick_members or interaction.user.guild_permissions.ban_members or interaction.user.guild_permissions.manage_roles or interaction.user.guild_permissions.manage_messages:
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1056,12 +1056,12 @@ class moderation(commands.Cog):
                     removed_warning = await cursor.fetchone()
             if removed_warning:
                 async with aiomysql.connect(
-                    host="161.97.78.70",
-                    port=3306,
-                    user="u38240_JdAbZAvfxO",
-                    password="H2wzrrusqEf@Hj7slG1LuKF@",
-                    db="s38240_database",
-                    charset='utf8mb4',
+                    db=db,
+                    host=db_host,
+                    port=db_port,
+                    user=db_user,
+                    password=db_password,
+                    charset=db_charset
                     cursorclass=aiomysql.DictCursor
                 ) as connection:
                     async with connection.cursor() as cursor:
@@ -1112,12 +1112,12 @@ class moderation(commands.Cog):
     async def clear_warnings(self, interaction: discord.Interaction, member: discord.Member):
         if interaction.user.guild_permissions.kick_members or interaction.user.guild_permissions.ban_members or interaction.user.guild_permissions.manage_roles or interaction.user.guild_permissions.manage_messages:
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1128,12 +1128,12 @@ class moderation(commands.Cog):
                     warnings = await cursor.fetchall()
                 if warnings:
                     async with aiomysql.connect(
-                        host="161.97.78.70",
-                        port=3306,
-                        user="u38240_JdAbZAvfxO",
-                        password="H2wzrrusqEf@Hj7slG1LuKF@",
-                        db="s38240_database",
-                        charset='utf8mb4',
+                        db=db,
+                        host=db_host,
+                        port=db_port,
+                        user=db_user,
+                        password=db_password,
+                        charset=db_charset,
                         cursorclass=aiomysql.DictCursor
                     ) as connection:
                         async with connection.cursor() as cursor:

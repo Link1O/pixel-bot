@@ -361,12 +361,12 @@ class bot_related(commands.Cog):
             api_latency = (end_time - start_time).microseconds // 1000
         start_time = datetime.datetime.now()
         conn = await aiomysql.connect(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4'
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset
         )
         async with conn.cursor() as cursor:
             await cursor.execute("SELECT 1")

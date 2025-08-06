@@ -25,7 +25,7 @@ color_pallet_codes = [
     {"name": "Pink", "hex": "FFC0CB"},
     {"name": "Brown", "hex": "A52A2A"},
 ]
-current_dir = os.path.dirname(os.path.abspath('/home/ore/Documents/pixel/core/arial.ttf'))
+current_dir = os.path.dirname(os.path.abspath(ff'{global_path}/core/arial.ttf'))
 font_path = os.path.join(current_dir, 'arial.ttf')
 giveaways = {}
 voted_users = {}
@@ -105,7 +105,7 @@ class utility(commands.Cog):
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed_gen)
-        existing_image = Image.open('/home/ore/Documents/pixel/core/template_info.png')
+        existing_image = Image.open(f'{global_path}/core/template_info.png')
         draw = ImageDraw.Draw(existing_image)
         font = ImageFont.truetype(font_path, 50)
         small_font = ImageFont.truetype(font_path, 45)
@@ -804,12 +804,12 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
                 embed.set_thumbnail(url=embed_thumbnail_url)
             generated_embed = await interaction.channel.send(embed=embed)
             conn = await aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             )
             async with conn.cursor() as cursor:
@@ -838,12 +838,12 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
     async def embed_edit(self, interaction: discord.Interaction, embed_id: str, embed_color: app_commands.Range[str, 1, 16], timestamp_state:Literal["on", "off"], title: app_commands.Range[str, 1, 250], description: app_commands.Range[str, 1, 4000], fields: app_commands.Range[str, 1, 6000] = None, author: app_commands.Range[str, 1, 250] = None, author_img_url: app_commands.Range[str, 1, 150] = None, footer: app_commands.Range[str, 1, 2000] = None, footer_img_url: app_commands.Range[str, 1, 150] = None, embed_thumbnail_url: app_commands.Range[str, 1, 150] = None):
         if interaction.user.guild_permissions.manage_messages:
             conn = await aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             )
             async with conn.cursor() as cursor:
@@ -953,12 +953,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     async def add_tag(self, interaction: discord.Interaction, tag_name: str, tag_content: app_commands.Range[str, 30, 1000], display_as_embed: Literal["on", "off"]):
         if interaction.user.guild_permissions.manage_messages:
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -978,12 +978,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                         return
 
                 async with aiomysql.connect(
-                    host="161.97.78.70",
-                    port=3306,
-                    user="u38240_JdAbZAvfxO",
-                    password="H2wzrrusqEf@Hj7slG1LuKF@",
-                    db="s38240_database",
-                    charset='utf8mb4',
+                    db=db,
+                    host=db_host,
+                    port=db_port,
+                    user=db_user,
+                    password=db_password,
+                    charset=db_charset,
                     cursorclass=aiomysql.DictCursor
                 ) as connection:
                     async with connection.cursor() as cursor:
@@ -1016,12 +1016,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
         if interaction.user.guild_permissions.manage_messages:
             display_as_embed = 'embed' if display_as_embed == 'on' else ''
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1086,12 +1086,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     ) -> typing.List[app_commands.Choice[str]]:
         tags = []
         async with aiomysql.connect(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4',
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset,
             cursorclass=aiomysql.DictCursor
         ) as connection:
             async with connection.cursor() as cursor:
@@ -1110,12 +1110,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     async def tag_remove(self, interaction: discord.Interaction, tag_name: str):
         if interaction.user.guild_permissions.manage_messages:
             async with aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1161,12 +1161,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     ) -> typing.List[app_commands.Choice[str]]:
         tags = []
         async with aiomysql.connect(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4',
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset,
             cursorclass=aiomysql.DictCursor
         ) as connection:
             async with connection.cursor() as cursor:
@@ -1185,12 +1185,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     async def tag_view(self, interaction: discord.Interaction, tag_name: str):
         found_tag = []
         async with aiomysql.connect(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4',
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset,
             cursorclass=aiomysql.DictCursor
         ) as connection:
             async with connection.cursor() as cursor:
@@ -1230,12 +1230,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     ) -> typing.List[app_commands.Choice[str]]:
         tags = []
         async with aiomysql.connect(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4',
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset,
             cursorclass=aiomysql.DictCursor
         ) as connection:
             async with connection.cursor() as cursor:
@@ -1252,12 +1252,12 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
     @app_commands.command(name="list", description="displays all tags")
     async def tag_list(self, interaction: discord.Interaction):
         async with aiomysql.create_pool(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4',
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset,
             cursorclass=aiomysql.DictCursor
         ) as pool:
             async with pool.acquire() as conn:
@@ -1379,12 +1379,12 @@ class afk_group_utillity(commands.GroupCog, group_name="afk", group_description=
     @app_commands.describe(message="Your AFK status")
     async def afk_set(self, interaction: discord.Interaction, message: str):
         conn = await aiomysql.connect(
-            host="161.97.78.70",
-            port=3306,
-            user="u38240_JdAbZAvfxO",
-            password="H2wzrrusqEf@Hj7slG1LuKF@",
-            db="s38240_database",
-            charset='utf8mb4',
+            db=db,
+            host=db_host,
+            port=db_port,
+            user=db_user,
+            password=db_password,
+            charset=db_charset,
             cursorclass=aiomysql.DictCursor
         )
         async with conn.cursor() as cursor:
@@ -1416,12 +1416,12 @@ class afk_group_utillity(commands.GroupCog, group_name="afk", group_description=
     @app_commands.command(name="remove", description="remove your AFK status")
     async def afk_remove(self, interaction: discord.Interaction):
         conn = await aiomysql.connect(
-                host="161.97.78.70",
-                port=3306,
-                user="u38240_JdAbZAvfxO",
-                password="H2wzrrusqEf@Hj7slG1LuKF@",
-                db="s38240_database",
-                charset='utf8mb4',
+                db=db,
+                host=db_host,
+                port=db_port,
+                user=db_user,
+                password=db_password,
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             )
         async with conn.cursor() as cursor:
