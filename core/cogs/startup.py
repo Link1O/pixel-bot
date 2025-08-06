@@ -35,7 +35,7 @@ class client(commands.AutoShardedBot):
         for filename in os.listdir(f'{global_path}/core/cogs'):
             if filename.endswith('.py') and not filename.startswith('startup'):
                 await self.load_extension(filename[:-3])
-                current_time = datetime.datetime.utcnow()
+                current_time = datetime.datetime.now(datetime.timezone.utc)
                 formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S')
                 print(Fore.LIGHTCYAN_EX + filename, Fore.MAGENTA +  f"has been loaded! [{formatted_time}]", Fore.RESET)
                 end_time = datetime.datetime.now()
@@ -48,7 +48,7 @@ class client(commands.AutoShardedBot):
                     print(Fore.MAGENTA + "took:", Fore.RED + f"{time_took}ms", Fore.RESET)
     async def on_ready(self):
         server_count = len(self.guilds)
-        current_time = datetime.datetime.utcnow()
+        current_time = datetime.datetime.now(datetime.timezone.utc)
         formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S')
         print(Fore.GREEN + f'{self.user} is now running. [{formatted_time}]', Fore.RESET)
         @tasks.loop(minutes=5)
@@ -59,7 +59,7 @@ class client(commands.AutoShardedBot):
         update_server_count.start()
         giveaway_check.start()
     async def on_shard_ready(self, shard_id):
-        current_time = datetime.datetime.utcnow()
+        current_time = datetime.datetime.now(datetime.timezone.utc)
         formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S')
         shard: discord.ShardInfo = self.get_shard(shard_id)
         print(Fore.GREEN + f'shard: {shard_id} has been connected. [{formatted_time}] (shard web socket latency: {round(shard.latency * 1000)}ms)', Fore.RESET)
@@ -71,7 +71,7 @@ class client(commands.AutoShardedBot):
                 embed = discord.Embed(
                     title="hey!",
                     description="❯ feeling lost? start by typing /help!",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await message.reply(embed=embed)
@@ -96,7 +96,7 @@ class client(commands.AutoShardedBot):
                             embed = discord.Embed(
                                 title="Notice",
                                 description=f"{user.display_name} is AFK: {result['message']} for: {humanize.naturaldelta(datetime.timedelta(seconds=afk_seconds))}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await message.reply(embed=embed)
@@ -116,7 +116,7 @@ class client(commands.AutoShardedBot):
                         embed = discord.Embed(
                             title="chat filter triggred",
                             description=f"❯ {message.author.mention}, watch your language.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         embed.set_footer(text=" |  auto-moderation", icon_url='https://cdn.discordapp.com/avatars/1155901354032758947/4f1a9c29d4d8df35b4739e2803e3f38f.png?size=1024')
@@ -132,7 +132,7 @@ class client(commands.AutoShardedBot):
                         embed_log = discord.Embed(
                             title="auto-moderation",
                             description=f"❯ {user}[`{message.author.id}`] triggered the auto-moderation in {channel}",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -158,7 +158,7 @@ class client(commands.AutoShardedBot):
                         embed = discord.Embed(
                             title="anti spam triggred",
                             description=f"{message.author.mention}, stop spamming.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         embed.set_footer(text=" |  auto-moderation", icon_url='https://cdn.discordapp.com/avatars/1155901354032758947/4f1a9c29d4d8df35b4739e2803e3f38f.png?size=1024')
@@ -174,7 +174,7 @@ class client(commands.AutoShardedBot):
                         embed_log = discord.Embed(
                             title="auto-moderation",
                             description=f"❯ {user}[`{message.author.id}`] triggered the auto-moderation in {channel}",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -190,7 +190,7 @@ class client(commands.AutoShardedBot):
                         embed = discord.Embed(
                             title="anti link triggred",
                             description=f"❯ {message.author.mention}, links are not allowed here.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         embed.set_footer(text=" |  auto-moderation", icon_url='https://cdn.discordapp.com/avatars/1155901354032758947/4f1a9c29d4d8df35b4739e2803e3f38f.png?size=1024')
@@ -206,7 +206,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="auto-moderation",
                                 description=f"❯ {user}[`{message.author.id}`] triggered the auto-moderation in {channel}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -228,7 +228,7 @@ class client(commands.AutoShardedBot):
                 embed_log = discord.Embed(
                     title="message deleted",
                     description=f"❯ the message: `{deleted_message}` has been deleted in: {channel}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await audit_log_channel.send(embed=embed_log)
@@ -261,7 +261,7 @@ class client(commands.AutoShardedBot):
                         embed_log = discord.Embed(
                             title="auto-moderation",
                             description=f"❯ {user}[`{after.author.id}`] triggered the auto-moderation in {channel}",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -273,7 +273,7 @@ class client(commands.AutoShardedBot):
                 embed_log = discord.Embed(
                     title="message edited",
                     description=f"❯ the member: {user}[`{user_id}`] has edited the message: `{original_content}` to `{edited_message}` in: {channel}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await audit_log_channel.send(embed=embed_log)
@@ -313,7 +313,7 @@ class client(commands.AutoShardedBot):
                 embed_log = discord.Embed(
                     title=f"Member joined",
                     description=f"❯ the member: {member.mention}[`{member.id}`] has joined the server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed_log.add_field(name="Account creation date", value=age)
@@ -352,7 +352,7 @@ class client(commands.AutoShardedBot):
                 embed_log = discord.Embed(
                     title=f"Member leaved",
                     description=f"❯ the member: {member.mention}[`{member.id}`] has left the server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await audit_log_channel.send(embed=embed_log)
@@ -366,7 +366,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title=f"Member banned",
                                 description=f"❯ the member: {member.mention}[`{member.id}`] has been banned by {entry.user.mention} (`{entry.user.id}`) Reason: `{entry.reason or 'None'}`",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -378,7 +378,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title=f"Member kicked",
                                 description=f"❯ the member: {member.mention}[`{member.id}`] has been kicked by {entry.user.mention} (`{entry.user.id}`) Reason: `{entry.reason or 'None'}`",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -390,7 +390,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -406,7 +406,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Member Unbanned",
                                 description=f"❯ the member with the id: `{member.id}`] has been unbanned by {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -418,7 +418,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -436,7 +436,7 @@ class client(commands.AutoShardedBot):
                                     title="server Renamed",
                                     description=f"❯ the server has been renamed by: {entry.user.mention}[`{entry.user.id}`].\n"
                                                 f"   Old Name: `{before.name}`\n   New Name: `{after.name}`",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -444,7 +444,7 @@ class client(commands.AutoShardedBot):
                                 embed_log = discord.Embed(
                                     title="server updated",
                                     description=f"❯ the server has been updated by {entry.user.mention}[`{entry.user.id}`]",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -456,7 +456,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -472,7 +472,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Channel Created",
                                 description=f"❯ the channel: {channel.mention}[`{channel.id}`] has been created by {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -484,7 +484,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -500,7 +500,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Channel Deleted",
                                 description=f"❯ the channel with the name: `{channel.name}` has been deleted by {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -512,7 +512,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -528,7 +528,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Channel Permissions Changed",
                                 description=f"❯ the channel: {after.mention}[`{after.id}`] Permissions has been changed by: {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -542,7 +542,7 @@ class client(commands.AutoShardedBot):
                                     title="Channel Renamed",
                                     description=f"❯ the Channel: {after.mention}[`{after.id}`] has been renamed by {entry.user.mention}[`{entry.user.id}`].\n"
                                                 f"   Old Name: `{before.name}`\n   New Name: `{after.name}`",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -550,7 +550,7 @@ class client(commands.AutoShardedBot):
                                 embed_log = discord.Embed(
                                     title="Channel updated",
                                     description=f"❯ the Channel: {after.mention}[`{after.id}`] has been updated by {entry.user.mention}[`{entry.user.id}`]",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -562,7 +562,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -578,7 +578,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="thread created",
                                 description=f"❯ the thread {thread.mention}[`{thread.id}`] has been created by: {entry.user.mention}[`{entry.user.id}`] parent channel: {thread.parent.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -590,7 +590,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title="Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -606,7 +606,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="thread deleted",
                                 description=f"❯ the thread with the name: `{thread.name}` has been deleted by: {entry.user.mention}[`{entry.user.id}`] parent channel: {thread.parent.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -618,7 +618,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title="Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -636,7 +636,7 @@ class client(commands.AutoShardedBot):
                                     title="thread Renamed",
                                     description=f"❯ the thread: {after.mention}[`{after.id}`] has been renamed by {entry.user.mention}[`{entry.user.id}`] parent channel: {after.parent.mention}\n"
                                                 f"   Old Name: `{before.name}`\n   New Name: `{after.name}`",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -644,7 +644,7 @@ class client(commands.AutoShardedBot):
                                 embed_log = discord.Embed(
                                     title="thread updated",
                                     description=f"❯ the thread: {after.mention}[`{after.id}`] has been updated by {entry.user.mention}[`{entry.user.id}`] parent channel: {after.parent.mention}",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -656,7 +656,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title="Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -672,7 +672,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="webhook created",
                                 description=f"❯ a webhook has been created in the channel {channel.mention}[`{channel.id}`] by: {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -685,7 +685,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Webhook deleted",
                                 description=f"❯ a webhook has been deleted in the channel {channel.mention}[`{channel.id}`] by: {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -699,7 +699,7 @@ class client(commands.AutoShardedBot):
                                     title="Webhook Renamed",
                                     description=f"❯ The webhook in channel {channel.mention}[`{channel.id}`] has been renamed by {entry.user.mention}[`{entry.user.id}`]\n"
                                                 f"   Old Name: `{entry.before.name}`\n   New Name: `{entry.after.name}`",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -707,7 +707,7 @@ class client(commands.AutoShardedBot):
                                 embed_log = discord.Embed(
                                     title="Webhook updated",
                                     description=f"❯ the webhook: {channel.mention}[`{channel.id}`] has been updated by {entry.user.mention}[`{entry.user.id}`]",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -719,7 +719,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title="Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -735,7 +735,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Role Created",
                                 description=f"❯ the role: {role.mention}[`{role.id}`] has been created by {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -747,7 +747,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -763,7 +763,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Role Deleted",
                                 description=f"❯ the role with the name: `{role.name}` has been deleted by: {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -775,7 +775,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -791,7 +791,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title="Role Permissions Changed",
                                 description=f"❯ the role: {after.mention}[`{after.id}`] Permissions have been changed by: {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await audit_log_channel.send(embed=embed_log)
@@ -805,7 +805,7 @@ class client(commands.AutoShardedBot):
                                     title="Role Renamed",
                                     description=f"❯ Role {after.mention}[`{after.id}`] has been renamed by {entry.user.mention}[`{entry.user.id}`].\n"
                                                 f"   Old Name: `{before.name}`\n   New Name: `{after.name}`",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -813,7 +813,7 @@ class client(commands.AutoShardedBot):
                                 embed_log = discord.Embed(
                                     title="Role updated",
                                     description=f"❯ the Role: {after.mention}[`{after.id}`] has been updated by {entry.user.mention}[`{entry.user.id}`]",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await audit_log_channel.send(embed=embed_log)
@@ -825,7 +825,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title="Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -845,7 +845,7 @@ class client(commands.AutoShardedBot):
                             embed_log = discord.Embed(
                                 title=f"Roles updated",
                                 description=f"❯ {after.mention}[`{after.id}`] roles has been updated by: {entry.user.mention}[`{entry.user.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             if added_roles:
@@ -862,7 +862,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title=f"Log Error! 🚫",
                         description=f"❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)
@@ -875,7 +875,7 @@ class client(commands.AutoShardedBot):
                     embed_log = discord.Embed(
                         title="Nickname Changed",
                         description=f"❯ {after.mention}'s nickname has been changed from `{before.nick}` to `{after.nick}`",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await audit_log_channel.send(embed=embed_log)

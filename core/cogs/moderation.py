@@ -34,7 +34,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -44,7 +44,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="Channel Locked",
                         description=f"{channel.mention} has been locked",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -56,7 +56,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="Channel Locked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] locked: {channel.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -78,7 +78,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -90,7 +90,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="Channel Locked",
                         description=f"{channel.mention} has been locked, duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -102,7 +102,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="Channel Locked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] locked: {channel.mention} duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -115,7 +115,7 @@ class moderation(commands.Cog):
                         unlock_embed = discord.Embed(
                             title="Channel automatically Unlocked",
                             description=f"❯ {channel.mention} has been automatically unlocked.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await interaction.channel.send(embed=unlock_embed)
@@ -128,7 +128,7 @@ class moderation(commands.Cog):
                                 embed_log = discord.Embed(
                                     title="Channel automatically Unlocked",
                                     description=f"❯ {channel.mention} has been automatically unlocked.",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await mod_log_channel.send(embed=embed_log)
@@ -138,7 +138,7 @@ class moderation(commands.Cog):
                 embed_error_lock = discord.Embed(
                     title="Error! 🚫",
                     description="the channel seems to be already locked.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_lock, ephemeral=True)
@@ -146,7 +146,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_channels`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True) 
@@ -165,7 +165,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -175,7 +175,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="channel unlocked",
                         description=f"{channel.mention} has been unlocked",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -187,7 +187,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="channel unlocked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] unlocked: {channel.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -209,7 +209,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -221,7 +221,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="channel unlocked",
                         description=f"{channel.mention} has been unlocked, duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -233,7 +233,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="channel unlocked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] unlocked: {channel.mention} duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -246,7 +246,7 @@ class moderation(commands.Cog):
                         unlock_embed = discord.Embed(
                             title="channel automatically locked",
                             description=f"❯ {channel.mention} has been automatically locked.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await interaction.channel.send(embed=unlock_embed)
@@ -259,7 +259,7 @@ class moderation(commands.Cog):
                                 embed_log = discord.Embed(
                                     title="channel automatically locked",
                                     description=f"❯ {channel.mention} has been automatically locked.",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await mod_log_channel.send(embed=embed_log)
@@ -267,7 +267,7 @@ class moderation(commands.Cog):
                 embed_error_lock = discord.Embed(
                     title="Error! 🚫",
                     description="the channel seems to be already unlocked.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_lock, ephemeral=True)
@@ -275,7 +275,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_channels`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -294,7 +294,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -304,7 +304,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="voice channel locked",
                         description=f"{channel.mention} has been locked",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -316,7 +316,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="voice channel locked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] locked the voice channel: {channel.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -338,7 +338,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -350,7 +350,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="voice channel locked",
                         description=f"{channel.mention} has been locked, duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -362,7 +362,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="voice channel locked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] locked the voice channel: {channel.mention} duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -375,7 +375,7 @@ class moderation(commands.Cog):
                         unlock_embed = discord.Embed(
                             title="voice channel automatically unlocked",
                             description=f"❯ {channel.mention} has been automatically unlocked.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await interaction.channel.send(embed=unlock_embed)
@@ -388,7 +388,7 @@ class moderation(commands.Cog):
                                 embed_log = discord.Embed(
                                     title="voice channel automatically unlocked",
                                     description=f"❯ {channel.mention} has been automatically unlocked.",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await mod_log_channel.send(embed=embed_log)
@@ -398,7 +398,7 @@ class moderation(commands.Cog):
                 embed_error_lock = discord.Embed(
                     title="Error! 🚫",
                     description="the voice channel seems to be already locked.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_lock, ephemeral=True)
@@ -406,7 +406,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_channels`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -425,7 +425,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -435,7 +435,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="voice channel unlocked",
                         description=f"{channel.mention} has been unlocked",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -447,7 +447,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="voice channel unlocked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] unlocked the voice channel: {channel.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -469,7 +469,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_channels`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -481,7 +481,7 @@ class moderation(commands.Cog):
                     embed = discord.Embed(
                         title="voice channel unlocked",
                         description=f"{channel.mention} has been unlocked, duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -493,7 +493,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="voice channel unlocked",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] unlocked the voice channel: {channel.mention} duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}.",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -506,7 +506,7 @@ class moderation(commands.Cog):
                         unlock_embed = discord.Embed(
                             title="voice channel automatically locked",
                             description=f"❯ {channel.mention} has been automatically locked.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await interaction.channel.send(embed=unlock_embed)
@@ -519,7 +519,7 @@ class moderation(commands.Cog):
                                 embed_log = discord.Embed(
                                     title="voice channel automatically locked",
                                     description=f"❯ {channel.mention} has been automatically locked.",
-                                    timestamp=datetime.datetime.utcnow(),
+                                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                                     color=discord.Color.purple()
                                 )
                                 await mod_log_channel.send(embed=embed_log)
@@ -529,7 +529,7 @@ class moderation(commands.Cog):
                 embed_error_lock = discord.Embed(
                     title="Error! 🚫",
                     description="the voice channel seems to be already locked.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_lock, ephemeral=True)
@@ -537,7 +537,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_channels`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -557,7 +557,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral=True)
@@ -565,7 +565,7 @@ class moderation(commands.Cog):
                 embed = discord.Embed(
                     title="Messages Purged",
                     description=f"❯ {int(amount)} messages were purged from: {member.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.channel.send(embed=embed)
@@ -577,7 +577,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="Messages Purged",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] purged {int(amount)} messages from: {member.mention}[`{member.id}`]",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -589,7 +589,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral=True)
@@ -597,7 +597,7 @@ class moderation(commands.Cog):
                 embed = discord.Embed(
                     title="Messages Purged",
                     description=f"❯ {int(amount)} messages were purged in: {channel.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.channel.send(embed=embed, delete_after=3.5)
@@ -607,7 +607,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="Messages Purged",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] purged {int(amount)} messages in: {channel.mention}[`{channel.id}`]",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -625,7 +625,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral=True)
@@ -633,7 +633,7 @@ class moderation(commands.Cog):
                 embed = discord.Embed(
                     title="Messages Purged",
                     description=f"❯ {int(amount)} messages were purged in: {channel.mention} from: {member.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.channel.send(embed=embed, delete_after=3.5)
@@ -643,7 +643,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="Messages Purged",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] purged {int(amount)} messages in: {channel.mention}[`{channel.id}`] from: {member.mention}[`{member.id}`]",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -655,7 +655,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral=True)
@@ -663,7 +663,7 @@ class moderation(commands.Cog):
                 embed = discord.Embed(
                     title="Messages Purged",
                     description=f"❯ {int(amount)} messages were purged!",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.channel.send(embed=embed, delete_after=3.5)
@@ -675,7 +675,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="Messages Purged",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] purged {int(amount)} messages in: {interaction.channel.mention}",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -684,7 +684,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -700,7 +700,7 @@ class moderation(commands.Cog):
 
                 embed = discord.Embed(
                     title="Sniped Message",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed.add_field(name="Author", value=f"❯ {author.mention}", inline=False)
@@ -710,7 +710,7 @@ class moderation(commands.Cog):
                 embed_error_found = discord.Embed(
                     title="Error",
                     description="❯ No deleted messages to snipe.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_found, ephemeral = True)
@@ -718,7 +718,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="You don't have permission to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -731,7 +731,7 @@ class moderation(commands.Cog):
                 embed_error_role_exists = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ {member.mention} already has the {role_name.mention} role.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_role_exists, ephemeral = True)
@@ -742,7 +742,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions. (`manage_roles`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -750,7 +750,7 @@ class moderation(commands.Cog):
                 embed = discord.Embed(
                     title="Role Added",
                     description=f"❯ The role {role_name.mention} has been given to {member.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -758,7 +758,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="You don't have permission to use this command. (`manage_roles`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.red()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -771,7 +771,7 @@ class moderation(commands.Cog):
                 embed_error_no_role = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ {member.mention} doesn't have the {role_name.mention} role.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_no_role, ephemeral = True)
@@ -782,7 +782,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions. (`manage_roles`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -790,7 +790,7 @@ class moderation(commands.Cog):
                 embed = discord.Embed(
                     title="Role Removed",
                     description=f"❯ The role {role_name.mention} has been removed from {member.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -798,7 +798,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have permission to use this command. (`manage_roles`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -809,7 +809,7 @@ class moderation(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot warn yourself",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_author, ephemeral=True)
@@ -818,7 +818,7 @@ class moderation(commands.Cog):
             embed_error_role = discord.Embed(
                 title="Error! 🚫",
                 description="❯ Your role is too low.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_role, ephemeral=True)
@@ -842,7 +842,7 @@ class moderation(commands.Cog):
                     await connection.commit()
             embed = discord.Embed(
                 title="Member Warned",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="Warned", value=f"❯ {member.mention}", inline=False)
@@ -858,7 +858,7 @@ class moderation(commands.Cog):
             if not member.bot:
                 embed_dm = discord.Embed(
                     title="You Got Warned",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed_dm.add_field(name="Server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -874,7 +874,7 @@ class moderation(commands.Cog):
                     embed_dm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ Failed to send a DM to the warned user.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.channel.send(embed=embed_dm_error)
@@ -886,7 +886,7 @@ class moderation(commands.Cog):
                     embed_log = discord.Embed(
                         title="Member Warned",
                         description=f"❯ {member.mention}[`{member.id}`] has been warned by {interaction.user.mention}[`{interaction.user.id}`] reason: {reason or 'None'}",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await mod_log_channel.send(embed=embed_log)
@@ -894,7 +894,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`kick_members` or `ban_members` or `manage_roles` or `manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -920,7 +920,7 @@ class moderation(commands.Cog):
                 embed_error_no_warnings = discord.Embed(
                     title="Error! 🚫",
                     description="❯ no warnings found.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_no_warnings, ephemeral=True)
@@ -931,7 +931,7 @@ class moderation(commands.Cog):
             for i in range(0, len(user_data), embed_limit):
                 embed = discord.Embed(
                     title=f"Warnings for {member.display_name} (found: {len(user_data)} warning(s))",
-                    timestamp=datetime.datetime.utcnow()
+                    timestamp=datetime.datetime.now(datetime.timezone.utc)
                 )
                 if member.avatar:
                     embed.set_thumbnail(url=member.avatar.url)
@@ -1018,7 +1018,7 @@ class moderation(commands.Cog):
                         embed_ownership = discord.Embed(
                             title="Error! 🚫",
                             description="You cannot interact with an other member interaction.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -1032,7 +1032,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`kick_members` or `ban_members` or `manage_roles` or `manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral = True)    
@@ -1076,7 +1076,7 @@ class moderation(commands.Cog):
                 embed_success = discord.Embed(
                     title="Warning Removed",
                     description=f"❯ Warning with ID {warning_id} has been removed from {member_mention} by {interaction.user.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_success)
@@ -1088,7 +1088,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="Warning Removed",
                             description=f"❯ The warning with ID `{warning_id}` has been removed from {member_mention} by {interaction.user.mention}",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -1096,7 +1096,7 @@ class moderation(commands.Cog):
                 embed_error_not_found = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ No warning with ID {warning_id} found in the guild.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_not_found, ephemeral=True)
@@ -1104,7 +1104,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`kick_members` or `ban_members` or `manage_roles` or `manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -1145,7 +1145,7 @@ class moderation(commands.Cog):
                     embed_success = discord.Embed(
                         title="Warnings Cleared",
                         description=f"❯ Warnings for {member.mention} have been cleared.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed_success)
@@ -1157,7 +1157,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="Warnings Cleared",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has cleared the warnings for {member.mention}[`{member.id}`]",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -1165,7 +1165,7 @@ class moderation(commands.Cog):
                     embed_error_not_found = discord.Embed(
                         title="Error! 🚫",
                         description=f"❯ No warnings found for {member.mention} in your guild.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error_not_found, ephemeral=True)
@@ -1173,7 +1173,7 @@ class moderation(commands.Cog):
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`kick_members` or `ban_members` or `manage_roles` or `manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)     
@@ -1183,7 +1183,7 @@ class moderation(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot mute your self",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_author, ephemeral=True)
@@ -1192,7 +1192,7 @@ class moderation(commands.Cog):
             embed_error_role = discord.Embed(
                 title="Error! 🚫",
                 description="❯ Your role is too low.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_role, ephemeral=True)
@@ -1208,7 +1208,7 @@ class moderation(commands.Cog):
                     embed_perm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ The bot doesn't have the required permissions.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1217,7 +1217,7 @@ class moderation(commands.Cog):
                 embed_already_muted = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ {member.mention} is already muted.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_already_muted, ephemeral = True)
@@ -1237,7 +1237,7 @@ class moderation(commands.Cog):
                 embed_perm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The bot doesn't have the required permissions. (`manage_roles`)",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1246,7 +1246,7 @@ class moderation(commands.Cog):
             muted_users[member.id] = unmute_time
             embed = discord.Embed(
                 title=f"member muted",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="muted", value=f"❯ {member.mention}", inline=False)
@@ -1260,7 +1260,7 @@ class moderation(commands.Cog):
             if not member.bot:
                 embed_dm = discord.Embed(
                     title="you got muted",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -1276,7 +1276,7 @@ class moderation(commands.Cog):
                     embed_dm_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ Failed to send a DM to the muted user.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.channel.send(embed_dm_error)
@@ -1288,7 +1288,7 @@ class moderation(commands.Cog):
                     embed_log = discord.Embed(
                         title="member muted",
                         description=f"❯ {member.mention}[`{member.id}`] has been muted by {interaction.user.mention}[`{interaction.user.id}`] reason: `{reason or 'None'}` duration: {humanize.naturaldelta(datetime.timedelta(seconds=duration))}",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await mod_log_channel.send(embed=embed_log)
@@ -1300,7 +1300,7 @@ class moderation(commands.Cog):
                 unmute_embed = discord.Embed(
                     title="member automatically unmuted",
                     description=f"❯ {member.mention} has been automatically unmuted.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.channel.send(embed=unmute_embed)
@@ -1313,7 +1313,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="member automatically unmuted",
                             description=f"❯ {member.mention}[`{member.id}`] has been automatically unmuted.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -1321,7 +1321,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have permission to use this command. (`manage_roles`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral = True) 
@@ -1337,7 +1337,7 @@ class moderation(commands.Cog):
                         embed_perm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ The bot doesn't have the required permissions. (`manage_roles`)",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1346,7 +1346,7 @@ class moderation(commands.Cog):
                         del muted_users[member.id]
                     embed = discord.Embed(
                         title=f"member unmuted",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     embed.add_field(name="unmuted", value=f"❯ {member.mention}", inline=False)
@@ -1364,7 +1364,7 @@ class moderation(commands.Cog):
                             embed_log = discord.Embed(
                                 title="member unmuted",
                                 description=f"❯ {member.mention}[`{member.id}`] has been unmuted by {interaction.user.mention}[`{interaction.user.id}`] reason: `{reason or 'None'}`",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -1372,7 +1372,7 @@ class moderation(commands.Cog):
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description=f"❯ {member.mention} is not muted.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -1381,7 +1381,7 @@ class moderation(commands.Cog):
                 embed_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The 'Muted' role does not exist.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -1390,7 +1390,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have permission to use this command. (`manage_roles`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.red()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -1486,7 +1486,7 @@ class moderation(commands.Cog):
                             embed_ownership = discord.Embed(
                                 title="Error! 🚫",
                                 description="You cannot interact with an other member interaction.",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.orange()
                             )
                             await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -1533,7 +1533,7 @@ class moderation(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot kick your self",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_author, ephemeral=True)
@@ -1542,7 +1542,7 @@ class moderation(commands.Cog):
             embed_perm_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot doesn't have the required permissions. (`kick_members`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1551,7 +1551,7 @@ class moderation(commands.Cog):
             embed_error_role = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot role is too low.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_role, ephemeral=True)
@@ -1560,7 +1560,7 @@ class moderation(commands.Cog):
             embed_error_role = discord.Embed(
                 title="Error! 🚫",
                 description="❯ Your role is too low.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_role, ephemeral=True)
@@ -1569,7 +1569,7 @@ class moderation(commands.Cog):
             if not member.bot:
                 embed_dm = discord.Embed(
                     title="you got kicked",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -1584,7 +1584,7 @@ class moderation(commands.Cog):
                     embed_dm_error = discord.Embed(
                         title="Error! 🚫",
                         description="Failed to send a DM to the kicked user.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.channel.send(embed=embed_dm_error)
@@ -1597,13 +1597,13 @@ class moderation(commands.Cog):
                 embed_error_not_found = discord.Embed(
                     title="Error! 🚫",
                     description="❯ member not found.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_error_not_found, ephemeral=True)
             embed = discord.Embed(
                 title="member kicked",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="kicked", value=f"❯ {member.mention}", inline=False)
@@ -1621,7 +1621,7 @@ class moderation(commands.Cog):
                     embed_log = discord.Embed(
                         title="member kicked",
                         description=f"❯ {member.mention}[`{member.id}`] has been kicked by {interaction.user.mention}[`{interaction.user.id}`] reason: `{reason or 'None'}`",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await mod_log_channel.send(embed=embed_log)
@@ -1629,7 +1629,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have permission to use this command. (`kick_members`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral = True)            
@@ -1640,7 +1640,7 @@ class moderation(commands.Cog):
                 embed_error_author = discord.Embed(
                     title="Error! 🚫",
                     description="❯ you cannot ban your self",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_author, ephemeral = True)
@@ -1649,7 +1649,7 @@ class moderation(commands.Cog):
                 embed_perm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The bot doesn't have the required permissions. (`ban_members`)",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1658,7 +1658,7 @@ class moderation(commands.Cog):
                 embed_error_role = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The bot role is too low.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_role, ephemeral=True)
@@ -1667,7 +1667,7 @@ class moderation(commands.Cog):
                 embed_error_role = discord.Embed(
                     title="Error! 🚫",
                     description="❯ Your role is too low.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_role, ephemeral=True)
@@ -1676,7 +1676,7 @@ class moderation(commands.Cog):
                 if not member.bot:
                     embed_dm = discord.Embed(
                         title="you got banned",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -1691,7 +1691,7 @@ class moderation(commands.Cog):
                         embed_dm_error = discord.Embed(
                             title="Error! 🚫",
                             description="❯ Failed to send a DM to the banned user.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.channel.send(embed=embed_dm_error)
@@ -1704,13 +1704,13 @@ class moderation(commands.Cog):
                     embed_error_not_found = discord.Embed(
                         title="Error! 🚫",
                         description="❯ member not found.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed_error_not_found, ephemeral=True)
                 embed = discord.Embed(
                     title="Member banned",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed.add_field(name="banned", value=f"❯ {member.mention}", inline=False)
@@ -1728,7 +1728,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="member banned",
                             description=f"❯ {member.mention}[`{member.id}`] has been banned by {interaction.user.mention}[`{interaction.user.id}`] reason: `{reason or 'None'}`",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -1736,7 +1736,7 @@ class moderation(commands.Cog):
                 embed_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ You don't have permission to use this command. (`ban_members`)",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -1745,7 +1745,7 @@ class moderation(commands.Cog):
                 embed_error_author = discord.Embed(
                     title="Error! 🚫",
                     description="❯ you cannot ban your self",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_author, ephemeral = True)
@@ -1754,7 +1754,7 @@ class moderation(commands.Cog):
                 embed_perm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The bot doesn't have the required permissions. (`ban_members`)",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1769,13 +1769,13 @@ class moderation(commands.Cog):
                     embed_error_not_found = discord.Embed(
                         title="Error! 🚫",
                         description="❯ member not found.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed_error_not_found, ephemeral=True)
                 embed = discord.Embed(
                     title="Member banned",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed.add_field(name="banned", value=f"❯ {member.name}", inline=False)
@@ -1793,7 +1793,7 @@ class moderation(commands.Cog):
                         embed_log = discord.Embed(
                             title="member banned",
                             description=f"❯ {member.name}[`{member.id}`] has been banned by {interaction.user.mention}[`{interaction.user.id}`] reason: `{reason or 'None'}`",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -1801,7 +1801,7 @@ class moderation(commands.Cog):
                 embed_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ You don't have permission to use this command. (`ban_members`)",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -1814,7 +1814,7 @@ class moderation(commands.Cog):
                 embed_error_not_found = discord.Embed(
                     title="Error! 🚫",
                     description="❯ member not found.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_not_found, ephemeral=True)       
@@ -1827,7 +1827,7 @@ class moderation(commands.Cog):
                 embed_perm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The bot doesn't have the required permissions. (`ban_members`)",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1836,14 +1836,14 @@ class moderation(commands.Cog):
                 embed_error_exis = discord.Embed(
                     title="Error! 🚫",
                     description="❯ the chosen member is not banned.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
                 return
             embed = discord.Embed(
                 title="member unbanned",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="unbanned", value=f"❯ {user.display_name}")
@@ -1861,7 +1861,7 @@ class moderation(commands.Cog):
                     embed_log = discord.Embed(
                         title="member unbanned",
                         description=f"❯ Member with the id `{member_id}` has been unbanned by {interaction.user.mention}[`{interaction.user.id}`] reason: `{reason or 'None'}`",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await mod_log_channel.send(embed=embed_log)
@@ -1869,7 +1869,7 @@ class moderation(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have permission to use this command. (`ban_members`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -1883,7 +1883,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral = True)
@@ -1892,7 +1892,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_perm_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1903,7 +1903,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description="the chat-filter seems to be already `enabled`",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral = True)
@@ -1913,7 +1913,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Server Protection Protocol",
                     description="Chat-filter is now `enabled` for this server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -1924,7 +1924,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                         embed_log = discord.Embed(
                             title="log",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has enabled the chat-filter setting",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await audit_log_channel.send(embed=embed_log)
@@ -1935,7 +1935,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Server Protection Protocol",
                     description="Chat-filter is now `disabled` for this server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -1946,7 +1946,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                         embed_log = discord.Embed(
                             title="log",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has disabled the chat-filter setting",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await audit_log_channel.send(embed=embed_log)
@@ -1954,7 +1954,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description="❯ the chat-filter seems to be already `disabled`",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral = True)
@@ -1964,7 +1964,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -1973,7 +1973,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_perm_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -1984,7 +1984,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The anti-spam feature seems to be already `enabled`",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -1994,7 +1994,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Anti-Spam Feature",
                     description="❯ The anti-spam feature is now `enabled` for this server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -2005,7 +2005,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                         embed_log = discord.Embed(
                             title="log",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has enabled the anti-spam setting",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await audit_log_channel.send(embed=embed_log)
@@ -2016,7 +2016,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Anti-Spam Feature",
                     description="❯ The anti-spam feature is now `disabled` for this server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -2027,7 +2027,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                         embed_log = discord.Embed(
                             title="log",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has disabled the anti-spam setting",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await audit_log_channel.send(embed=embed_log)
@@ -2035,7 +2035,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The anti-spam feature seems to be already `disabled`",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -2045,7 +2045,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral = True)
@@ -2054,7 +2054,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_perm_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot doesn't have the required permissions. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -2065,7 +2065,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description="❯ the anti-link seems to be already `enabled`",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral = True)
@@ -2075,7 +2075,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Server Protection Protocol",
                     description="❯ Anti-link is now `enabled` for this server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -2086,7 +2086,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                         embed_log = discord.Embed(
                             title="log",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has enabled the anti-link setting",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await audit_log_channel.send(embed=embed_log)
@@ -2097,7 +2097,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Server Protection Protocol",
                     description="❯ Anti-link is now `disabled` for this server.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -2108,7 +2108,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                         embed_log = discord.Embed(
                             title="log",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has disabled the anti-link setting",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await audit_log_channel.send(embed=embed_log)
@@ -2116,7 +2116,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description="❯ the anti-link seems to be already `disabled`",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral = True)
@@ -2126,7 +2126,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`view_audit_log`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2135,7 +2135,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_perm_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -2146,7 +2146,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_error_set = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The chosen channel is already set as the audit log channel.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_set, ephemeral=True)
@@ -2157,7 +2157,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
         embed = discord.Embed(
             title="Audit Log Channel Set",
             description=f"❯ audit log channel has been set to {channel.mention}.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -2168,7 +2168,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_log = discord.Embed(
                     title="audit setting",
                     description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has set the audit log channel to {channel.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
             await mod_log_channel.send(embed=embed_log)
@@ -2179,7 +2179,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`view_audit_log`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2192,7 +2192,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_log = discord.Embed(
                     title="audit log removed",
                     description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has removed the audit log channel setting",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await mod_log_channel.send(embed=embed_log)
@@ -2201,7 +2201,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Audit Log Channel Removed",
                 description="❯ The audit log channel setting has been removed for this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed)
@@ -2209,7 +2209,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Error! 🚫",
                 description="❯ There was no audit log channel setting to remove.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -2219,7 +2219,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`view_audit_log`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2228,7 +2228,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_perm_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ The bot doesn't have the required permissions. (`view_audit_log`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_perm_error, ephemeral = True)
@@ -2239,7 +2239,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_error_set = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The chosen channel is already set as the moderation log channel.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_set, ephemeral=True)
@@ -2250,7 +2250,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
         embed = discord.Embed(
             title="moderation Log Channel Set",
             description=f"❯ moderation log channel has been set to {channel.mention}.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -2261,7 +2261,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_log = discord.Embed(
                     title="moderation Log Channel Set",
                     description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has set the moderation log channel to {channel.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
             await mod_log_channel.send(embed=embed_log)
@@ -2271,7 +2271,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2285,7 +2285,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                     embed_log = discord.Embed(
                         title="moderation log removed",
                         description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has removed the moderation log channel setting",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                 await mod_log_channel.send(embed=embed_log)
@@ -2294,7 +2294,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="moderation Log Channel Removed",
                 description="❯ The moderation log channel setting has been removed for this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed)
@@ -2302,7 +2302,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Error! 🚫",
                 description="❯ There was no moderation log channel setting to remove.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -2312,7 +2312,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2323,7 +2323,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_error_set = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The chosen channel is already set as the welcomer channel.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_set, ephemeral=True)
@@ -2334,7 +2334,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
         embed = discord.Embed(
             title="welcomer Channel Set",
             description=f"❯ Welcomer channel has been set to {channel.mention}.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -2345,7 +2345,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_log = discord.Embed(
                     title="welcomer Channel Set",
                     description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has set the welcomer channel to {channel.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
             await mod_log_channel.send(embed=embed_log)
@@ -2355,7 +2355,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2368,7 +2368,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="welcomer Channel Removed",
                 description="❯ The welcomer channel setting has been removed for this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed)
@@ -2379,7 +2379,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                     embed_log = discord.Embed(
                         title="welcomer Channel Removed",
                         description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has removed the welcomer channel setting",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                 await mod_log_channel.send(embed=embed_log)
@@ -2387,7 +2387,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Error! 🚫",
                 description="❯ There was no welcomer channel setting to remove.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -2397,7 +2397,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2408,7 +2408,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_error_set = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The chosen channel is already set as the farweller channel.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_set, ephemeral=True)
@@ -2419,7 +2419,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
         embed = discord.Embed(
             title="Farweller Channel Set",
             description=f"❯ Farweller channel has been set to {channel.mention}.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -2430,7 +2430,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_log = discord.Embed(
                     title="Farweller Channel Set",
                     description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has set the farwell channel to {channel.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
             await mod_log_channel.send(embed=embed_log)
@@ -2440,7 +2440,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2453,7 +2453,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Farweller Channel Removed",
                 description="❯ The Farweller channel setting has been removed for this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed)
@@ -2464,7 +2464,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                     embed_log = discord.Embed(
                         title="Farweller Channel Removed",
                         description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has removed the farwell channel setting",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                 await mod_log_channel.send(embed=embed_log)
@@ -2472,7 +2472,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Error! 🚫",
                 description="❯ There was no welcomer channel setting to remove.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -2482,7 +2482,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2493,7 +2493,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_error_set = discord.Embed(
                     title="Error! 🚫",
                     description="❯ The chosen channel is already set as the suggestions channel.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_set, ephemeral=True)
@@ -2504,7 +2504,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
         embed = discord.Embed(
             title="Suggestion Channel Set",
             description=f"❯ Suggestion channel has been set to {channel.mention}.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -2515,7 +2515,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                 embed_log = discord.Embed(
                     title="Suggestion Channel Set",
                     description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has set the suggestions channel to {channel.mention}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
             await mod_log_channel.send(embed=embed_log)
@@ -2525,7 +2525,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed_error_perms = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_perms, ephemeral=True)
@@ -2538,7 +2538,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Suggestion Channel Removed",
                 description="❯ The suggestion channel setting has been removed for this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed)
@@ -2549,7 +2549,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
                     embed_log = discord.Embed(
                         title="Suggestion Channel Removed",
                         description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] has removed the suggestions channel setting",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                 await mod_log_channel.send(embed=embed_log)
@@ -2557,7 +2557,7 @@ class setting_group_moderation(commands.GroupCog, group_name='setting', group_de
             embed = discord.Embed(
                 title="Error! 🚫",
                 description="❯ There was no suggestion channel setting to remove.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed, ephemeral=True)

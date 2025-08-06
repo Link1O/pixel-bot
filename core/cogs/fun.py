@@ -83,7 +83,7 @@ class fun(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot kill your self",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed_error_author)
@@ -91,7 +91,7 @@ class fun(commands.Cog):
         search_term = "anime kill"
         embed = discord.Embed(
             title=f"{interaction.user.display_name} has killed {member.display_name}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=await fetch_from_tenor(search_term))
@@ -115,7 +115,7 @@ class fun(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot punch your self",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed_error_author)
@@ -123,7 +123,7 @@ class fun(commands.Cog):
         search_term = "anime punch"
         embed = discord.Embed(
             title=f"{interaction.user.display_name} has punched {member.display_name}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=await fetch_from_tenor(search_term))
@@ -147,7 +147,7 @@ class fun(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot slap your self",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed_error_author)
@@ -155,7 +155,7 @@ class fun(commands.Cog):
         search_term = "anime slap"
         embed = discord.Embed(
             title=f"{interaction.user.display_name} has slapped {member.display_name}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=await fetch_from_tenor(search_term))
@@ -189,7 +189,7 @@ class fun(commands.Cog):
                 await interaction.response.send_message(embed=discord.Embed(
                     title="Error! 🚫",
                     description=message,
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 ), ephemeral=True)
                 return
@@ -197,14 +197,14 @@ class fun(commands.Cog):
         await interaction.response.send_message(embed=discord.Embed(
             title="Success",
             description="Proposed successfully",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         ), ephemeral=True)
     
         embed_proposal = discord.Embed(
             title="Proposal",
             description=f"{author.mention} wants to marry {member.mention}. React with <:discotoolsxyzicon37:1178763859071344701> to accept or <:discotoolsxyzicon38:1178763916914991164> to decline.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         proposal_message = await interaction.channel.send(embed=embed_proposal)
@@ -223,7 +223,7 @@ class fun(commands.Cog):
     
                 embed_success = discord.Embed(
                     title=f"{self.author.display_name} has married {member.display_name}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed_success.set_image(url=await fetch_from_tenor("anime marry"))
@@ -238,7 +238,7 @@ class fun(commands.Cog):
             async def decline_button(self, interaction: discord.Interaction, button: discord.ui.Button):
                 embed_reject = discord.Embed(
                     title=f"{member.display_name} has rejected {self.author.display_name}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed_reject.set_image(url=await fetch_from_tenor("anime reject"))
@@ -254,7 +254,7 @@ class fun(commands.Cog):
                     await interaction.response.send_message(embed=discord.Embed(
                         title="Error! 🚫",
                         description="You cannot interact with this interaction.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     ), ephemeral=True)
                     return False
@@ -273,7 +273,7 @@ class fun(commands.Cog):
             await interaction.response.send_message(embed=discord.Embed(
                 title="Error! 🚫",
                 description="You are not married.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             ))
             return
@@ -286,7 +286,7 @@ class fun(commands.Cog):
         await interaction.response.send_message(embed=discord.Embed(
             title="divorce",
             description=f"you are now divorced from {spouse.mention}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         ).set_image(url=await fetch_from_tenor("anime divorce")))
     @app_commands.command(name="marriage_status", description="Check marriage status")
@@ -304,7 +304,7 @@ class fun(commands.Cog):
         embed = discord.Embed(
             title="Marriage Status",
             description=description,
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -315,7 +315,7 @@ class fun(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot kiss your self",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed_error_author)
@@ -323,7 +323,7 @@ class fun(commands.Cog):
         search_term = "anime kiss"
         embed = discord.Embed(
             title=f"{interaction.user.display_name} has kissed {member.display_name}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=await fetch_from_tenor(search_term))
@@ -346,7 +346,7 @@ class fun(commands.Cog):
         search_term = "anime blush"
         embed = discord.Embed(
             title=f"{interaction.user.display_name} is blushing",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=await fetch_from_tenor(search_term))
@@ -368,7 +368,7 @@ class fun(commands.Cog):
     async def waifu(self, interacion: discord.Interaction):
         embed = discord.Embed(
             title="waifu",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=await fetch_waifu())
@@ -392,7 +392,7 @@ class fun(commands.Cog):
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot troll your self.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_author, ephemeral=True)
@@ -401,7 +401,7 @@ class fun(commands.Cog):
             embed_error_bot = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot troll a bot.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_bot, ephemeral=True)
@@ -409,7 +409,7 @@ class fun(commands.Cog):
         if act.lower() == "ban":
             embed = discord.Embed(
                 title="Member banned",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="banned", value=f"❯ {member.mention}", inline=False)
@@ -421,7 +421,7 @@ class fun(commands.Cog):
             await interaction.response.send_message(embed=embed)
             embed_dm = discord.Embed(
                 title="you got banned",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -437,14 +437,14 @@ class fun(commands.Cog):
                 embed_dm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ Failed to send a DM to the member",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.channel.send(embed=embed_dm_error)
         if act.lower() == "kick":
             embed = discord.Embed(
                 title="Member kicked",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="kicked", value=f"❯ {member.mention}", inline=False)
@@ -456,7 +456,7 @@ class fun(commands.Cog):
             await interaction.response.send_message(embed=embed)
             embed_dm = discord.Embed(
                 title="you got kicked",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -472,14 +472,14 @@ class fun(commands.Cog):
                 embed_dm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ Failed to send a DM to the member",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.channel.send(embed=embed_dm_error)
         if act.lower() == "mute":
             embed = discord.Embed(
                 title=f"member muted",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="muted", value=f"❯ {member.mention}", inline=False)
@@ -491,7 +491,7 @@ class fun(commands.Cog):
                 embed.add_field(name="reason", value=f"❯ None", inline=False)
             embed_dm = discord.Embed(
                 title="you got muted",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -509,14 +509,14 @@ class fun(commands.Cog):
                 embed_dm_error = discord.Embed(
                     title="Error! 🚫",
                     description="❯ Failed to send a DM to the member.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.channel.send(embed_dm_error)
         if act.lower() == "mute":
             embed = discord.Embed(
                 title="member warned",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="warned", value=f"❯ {member.mention}", inline=False)
@@ -527,7 +527,7 @@ class fun(commands.Cog):
                 embed.add_field(name="reason", value=f"❯ None", inline=False)
             embed_dm = discord.Embed(
                 title="you got warned",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed_dm.add_field(name="server", value=f"❯ {interaction.guild.name}", inline=False)
@@ -567,7 +567,7 @@ class fun(commands.Cog):
         embed = discord.Embed(
             title=f"🔍 Search Results for the provided search query",
             description=anime_info,
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=poster)
@@ -592,7 +592,7 @@ class fun(commands.Cog):
         embed = discord.Embed(
             title=f"🔍 Search Results for the provided search query",
             description=manga_info,
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_image(url=poster)
@@ -657,7 +657,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
                 embed = discord.Embed(
                     title="balance",
                     description=f"{balance_member_text}{balance} credit's",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -667,7 +667,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
             embed_error_self = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot send credits to yourself.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_self, ephemeral = True)
@@ -676,7 +676,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
             embed_error_bot = discord.Embed(
                 title="Error! 🚫",
                 description="❯ you cannot send credits to a bot.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_bot, ephemeral = True)
@@ -702,7 +702,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
                         embed_error_low = discord.Embed(
                             title="Error! 🚫",
                             description="❯ cannot send less then 100 credits.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_error_low, ephemeral = True)
@@ -718,7 +718,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
                     embed = discord.Embed(
                         title="credit's given",
                         description=f"{amount} credit's has been given to {member.mention}.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -726,7 +726,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
                     embed_error_balance = discord.Embed(
                         title="Error! 🚫",
                         description="❯ low balance.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error_balance, ephemeral = True)
@@ -761,7 +761,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
                     embed = discord.Embed(
                         title="Credits Earned",
                         description=f"Lucky you! Your boss was in a good mood and gave you {earnings} credits for your hard work!",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -769,7 +769,7 @@ class credit_group_fun(commands.GroupCog, group_name='credit', group_description
                     embed = discord.Embed(
                         title="Credits Earned",
                         description=f"You earned {earnings} credits!",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)

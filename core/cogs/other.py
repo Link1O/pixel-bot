@@ -16,7 +16,7 @@ class other(commands.Cog):
         embed = discord.Embed(
             title="debug command",
             description=f"❯ This command is used to debug the bot and check if everything is working fine. {whitelist}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.green()
         )
         await ctx.reply(embed=embed)
@@ -39,7 +39,7 @@ class other(commands.Cog):
                 embed = discord.Embed(
                     title="synced successfully!",
                     description=f"❯ Synced {len(synced)} commands {'globally' if spec is None else 'to the current guild.'}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await ctx.reply(embed=embed)
@@ -55,7 +55,7 @@ class other(commands.Cog):
             embed = discord.Embed(
                 title="synced successfully!",
                 description=f"❯ Synced the tree to {ret}/{len(guilds)}.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await ctx.reply(embed=embed)
@@ -70,7 +70,7 @@ class other(commands.Cog):
                 embed = discord.Embed(
                     title="Extension loaded successfully!",
                     description=f"❯ Extension: `{extension_name}` has been loaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await ctx.reply(embed=embed)
@@ -78,7 +78,7 @@ class other(commands.Cog):
                 embed_error_already_loaded = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ Extension: `{extension_name}` is already loaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_already_loaded)
@@ -86,7 +86,7 @@ class other(commands.Cog):
                 embed_error_not_found = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ Extension: `{extension_name}` not found.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_not_found)
@@ -101,7 +101,7 @@ class other(commands.Cog):
                 embed = discord.Embed(
                     title="Extension unloaded successfully!",
                     description=f"❯ Extension: `{extension_name}` has been unloaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await ctx.reply(embed=embed)
@@ -109,7 +109,7 @@ class other(commands.Cog):
                 embed_error_not_loaded = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ Extension: `{extension_name}` is not loaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_not_loaded)
@@ -117,7 +117,7 @@ class other(commands.Cog):
                 embed_error_not_found = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ Extension: `{extension_name}` not found.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_not_found)
@@ -132,7 +132,7 @@ class other(commands.Cog):
                 embed = discord.Embed(
                     title="extension reloaded successfully!",
                     description=f"❯ extension: `{extension_name}` has been reloaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await ctx.reply(embed=embed)
@@ -140,7 +140,7 @@ class other(commands.Cog):
                 embed_error_already_loaded = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ Extension: `{extension_name}` is not loaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_already_loaded)
@@ -148,7 +148,7 @@ class other(commands.Cog):
                 embed_error_exis = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ extension: `{extension_name}` not found.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_exis)
@@ -156,7 +156,7 @@ class other(commands.Cog):
                 embed_error_fail = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ failed to reload extension: `{extension_name}`.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_fail)
@@ -173,7 +173,7 @@ class other(commands.Cog):
                         embed = discord.Embed(
                             title="extension reloaded successfully!",
                             description=f"❯ extension: `{filename}` has been reloaded.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await ctx.reply(embed=embed)
@@ -181,7 +181,7 @@ class other(commands.Cog):
                 embed_error_already_loaded = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ Extension: `{filename}` is not loaded.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_already_loaded)
@@ -189,7 +189,7 @@ class other(commands.Cog):
                 embed_error_fail = discord.Embed(
                     title="Error! 🚫",
                     description=f"❯ failed to reload extension: `{filename}`.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await ctx.reply(embed=embed_error_fail)

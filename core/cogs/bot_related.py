@@ -51,7 +51,7 @@ class bot_related(commands.Cog):
                         f"❯ <:discotoolsxyzicon10:1171143262258606180> **bot language:** python\n"
                         f"❯ <:discotoolsxyzicon11:1171143385868947487> **bot library:** discord.py\n"
                         f"❯ <:discotoolsxyzicon12:1171143595105996830> **open source status:** closed",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         random_pixelart_gif_url = random.choice(pixel_art_help_menu)
@@ -121,7 +121,7 @@ class bot_related(commands.Cog):
                                     "```/warnings``` `@member` - Displays warnings for a member.\n"
                                     "```/unwarn``` `warning id` - removes the warning with the ID provided from the database\n"
                                     "```/clear_warnings``` `@member` - clears all the member warnings.",
-                        timestamp=datetime.datetime.utcnow(),            
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),            
                         color=discord.Color.purple()
                     )  
                     await msg.edit(embed=embed)
@@ -131,7 +131,7 @@ class bot_related(commands.Cog):
                         description="```/chat_filter``` `on/off` (the chat filter function is turned off by default) - turns on and off the chat filter feature. (note 💡: enabling this feature will result in filtering the suggestions)\n"
                                     "```/anti_spam``` `on/off` (the anti spam function is turned off by default) - turns on and off the anti spam feature. (note 💡: enabling this feature will result in filtering the suggestions)\n"
                                     "```/anti_link``` `on/off` (the anti link function is turned off by default) - turns on and off the anti link feature. ()",
-                        timestamp=datetime.datetime.utcnow(),            
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),            
                         color=discord.Color.purple()
                     ) 
                     await msg.edit(embed=embed)
@@ -152,7 +152,7 @@ class bot_related(commands.Cog):
                                     "```/credit work``` - to earn credit - cooldown: 10 hours.\n"
                                     "```/anime_search``` `query` - provides an basic information about the inputted anime - cooldown: 5 seconds.\n"
                                     "```/manga_search``` `query` - provides an basic information about the inputted manga - cooldown: 5 seconds.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await msg.edit(embed=embed)
@@ -170,7 +170,7 @@ class bot_related(commands.Cog):
                                     "```/ping``` - Shows the bot latency.\n"
                                     "```/terms_of_use``` = to view the bots terms of use.\n"
                                     "```/privacy_policy``` to view the bots privacy policy.",
-                        timestamp=datetime.datetime.utcnow(),            
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),            
                         color=discord.Color.purple()
                     )
                     await msg.edit(embed=embed)
@@ -185,7 +185,7 @@ class bot_related(commands.Cog):
                     embed_ownership = discord.Embed(
                         title="Error! 🚫",
                         description="You cannot interact with an other member interaction.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -208,7 +208,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Terms of Use for Pixel",
             description="By using our bot, you agree to the following terms:",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.add_field(
@@ -249,7 +249,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Privacy Policy for pixel",
             description="❯ At pixel team, we take your privacy seriously. This Privacy Policy is designed to help you understand how we collect, use, and safeguard your information. By using our bot and its services, you consent to the practices described in this policy.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.add_field(
@@ -302,13 +302,13 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Feedback Sent Successfully",
             description="❯ Thanks for providing us with your feedback!",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed_channel = discord.Embed(
             title="Feedback",
             description="❯ Feedback received",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed_channel.add_field(name="Value", value=f"❯ {feedback}", inline=True)
@@ -333,7 +333,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="invite",
             description="❯ click the button below to invite the bot.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         button = Button(label="link", style=discord.ButtonStyle.link, url='https://discord.com/api/oauth2/authorize?client_id=1155901354032758947&permissions=8&scope=bot')
@@ -345,7 +345,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="invite",
             description="❯ click the button below to enter the support server.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         button = Button(label="link", style=discord.ButtonStyle.link, url='https://discord.gg/aFf7TdJdFV')
@@ -377,7 +377,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Pong! 🏓",
             description="❯ Latency Information",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.add_field(name="Websocket Latency", value=f"❯ {ws_latency}ms", inline=True)
@@ -395,7 +395,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Bot Uptime",
             description=f"❯ The bot has been online for: {uptime_str}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -409,7 +409,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Servers Leaderboard (by member count)",
             description=f"```\n{leaderboard_text}\n```",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)   
@@ -419,7 +419,7 @@ class bot_related(commands.Cog):
         embed = discord.Embed(
             title="Server Count",
             description=f"❯ I am currently in {server_count} servers.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interacion.response.send_message(embed=embed)

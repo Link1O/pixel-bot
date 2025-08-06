@@ -69,7 +69,7 @@ class utility(commands.Cog):
             total_roles = len(server.roles)
             embed = discord.Embed(
                 title=f"Server Information - {server.name}",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             if server.icon:
@@ -90,7 +90,7 @@ class utility(commands.Cog):
         embed = discord.Embed(
             title="member count",
             description=f"❯ {server_member_count}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)
@@ -101,7 +101,7 @@ class utility(commands.Cog):
         embed_gen = discord.Embed(
             title="generation",
             description="generating the info image...",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed_gen)
@@ -180,7 +180,7 @@ class utility(commands.Cog):
                     avatar_url = member.avatar.url
                     embed = discord.Embed(
                         title=f"{member.display_name}'s Profile Picture",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     embed.set_image(url=avatar_url)
@@ -189,7 +189,7 @@ class utility(commands.Cog):
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="the user doesnt seem to have an avatar.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -198,7 +198,7 @@ class utility(commands.Cog):
                 embed_member_id = discord.Embed(
                     title="id",
                     description=f"❯ member id: {member.id}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_member_id, ephemeral = True)
@@ -211,7 +211,7 @@ class utility(commands.Cog):
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ No roles found.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -219,7 +219,7 @@ class utility(commands.Cog):
                 embed = discord.Embed(
                     title=f"Roles for {member.display_name}",
                     description=f"❯ {role_list}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -228,7 +228,7 @@ class utility(commands.Cog):
                     embed_ownership = discord.Embed(
                         title="Error! 🚫",
                         description="You cannot interact with an other member interaction.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -249,7 +249,7 @@ class utility(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ No roles found.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error)
@@ -257,7 +257,7 @@ class utility(commands.Cog):
         embed = discord.Embed(
             title=f"Roles for {member.display_name}",
             description=f"❯ {role_list}",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         embed.set_thumbnail(url=member.avatar.url)
@@ -270,7 +270,7 @@ class utility(commands.Cog):
             avatar_url = member.avatar.url
             embed = discord.Embed(
                 title=f"{member.display_name}'s Profile Picture",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.set_image(url=avatar_url)
@@ -279,7 +279,7 @@ class utility(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="the user doesnt seem to have an avatar.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -293,7 +293,7 @@ class utility(commands.Cog):
             embed = discord.Embed(
                 title="🎉 Giveaway",
                 description=(f"prize: {prize}"),
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.add_field(name="Remaining time", value=humanize.naturaldelta(datetime.timedelta(seconds=duration_seconds)), inline=True)
@@ -319,7 +319,7 @@ class utility(commands.Cog):
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -347,7 +347,7 @@ class utility(commands.Cog):
             embed_error_set = discord.Embed(
                 title="Error! 🚫",
                 description="❯ No suggestion channel has been set for this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_set, ephemeral=True)
@@ -357,7 +357,7 @@ class utility(commands.Cog):
                 embed_error_content = discord.Embed(
                     title="Error! 🚫",
                     description="❯ Suggestion content is inappropriate.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_content, ephemeral=True)
@@ -368,7 +368,7 @@ class utility(commands.Cog):
                         embed_log = discord.Embed(
                             title="auto-moderation",
                             description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] triggered the auto-moderation in {interaction.channel.mention}",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.purple()
                         )
                         await mod_log_channel.send(embed=embed_log)
@@ -380,7 +380,7 @@ class utility(commands.Cog):
                     embed_error_content = discord.Embed(
                         title="Error! 🚫",
                         description="❯ Links are not allowed.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error_content, ephemeral=True)
@@ -391,7 +391,7 @@ class utility(commands.Cog):
                             embed_log = discord.Embed(
                                 title="auto-moderation",
                                 description=f"❯ {interaction.user.mention}[`{interaction.user.id}`] triggered the auto-moderation in {interaction.channel.mention}",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             await mod_log_channel.send(embed=embed_log)
@@ -406,7 +406,7 @@ class utility(commands.Cog):
         embed = discord.Embed(
             title="Suggestion",
             description=f"content: {suggestion} | upvotes: {upvotes} ({upvotes_percentage:.2f}%) | downvotes: {downvotes} ({downvotes_percentage:.2f}%) | status: pending",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         if original_user.avatar:
@@ -430,7 +430,7 @@ class utility(commands.Cog):
                     embed_key_limit = discord.Embed(
                         title="Error! 🚫",
                         description="You have already voted on this suggestion.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_key_limit, ephemeral=True)
@@ -442,7 +442,7 @@ class utility(commands.Cog):
                 embed = discord.Embed(
                     title="Suggestion",
                     description=f"content: {suggestion} | upvotes: {self.upvotes} ({upvotes_percentage:.2f}%) | downvotes: {self.downvotes} ({downvotes_percentage:.2f}%) | status: {self.status}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 if original_user.avatar:
@@ -454,7 +454,7 @@ class utility(commands.Cog):
                 embed_success = discord.Embed(
                     title="upvoted",
                     description="suggestion upvoted successfully",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_success, ephemeral=True)
@@ -466,7 +466,7 @@ class utility(commands.Cog):
                     embed_key_limit = discord.Embed(
                         title="Error! 🚫",
                         description="You have already voted on this suggestion.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_key_limit, ephemeral=True)
@@ -478,7 +478,7 @@ class utility(commands.Cog):
                 embed = discord.Embed(
                     title="Suggestion",
                     description=f"content: {suggestion} | upvotes: {self.upvotes} ({upvotes_percentage:.2f}%) | downvotes: {self.downvotes} ({downvotes_percentage:.2f}%) | status: {self.status}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 if original_user.avatar:
@@ -490,7 +490,7 @@ class utility(commands.Cog):
                 embed_success = discord.Embed(
                     title="upvoted",
                     description="suggestion downvoted successfully",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_success, ephemeral=True)
@@ -500,7 +500,7 @@ class utility(commands.Cog):
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ You don't have the required permissions to use this interaction. (`manage_messsages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -519,7 +519,7 @@ class utility(commands.Cog):
                             embed = discord.Embed(
                                 title=f"List of Voters (found: {len(voters_mentions)} voter(s))",
                                 description='\n'.join(voters_page),
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.purple()
                             )
                             embed.set_footer(text="Page {}/{}".format((i // embed_limit) + 1, (len(voters_list_pages) - 1) // embed_limit + 1 if len(voters_list_pages) % embed_limit != 0 else len(voters_list_pages) // embed_limit))
@@ -529,7 +529,7 @@ class utility(commands.Cog):
                     embed_error_exis = discord.Embed(
                         title=f"Error! 🚫",
                         description="no voters found.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
@@ -608,7 +608,7 @@ class utility(commands.Cog):
                             embed_ownership = discord.Embed(
                                 title="Error! 🚫",
                                 description="You cannot interact with an other member interaction.",
-                                timestamp=datetime.datetime.utcnow(),
+                                timestamp=datetime.datetime.now(datetime.timezone.utc),
                                 color=discord.Color.orange()
                             )
                             await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -622,7 +622,7 @@ class utility(commands.Cog):
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ You don't have the required permissions to use this interaction. (`manage_messsages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -634,7 +634,7 @@ class utility(commands.Cog):
                 embed = discord.Embed(
                     title="Suggestion",
                     description=f"content: {suggestion} | upvotes: {self.upvotes} ({upvotes_percentage:.2f}%) | downvotes: {self.downvotes} ({downvotes_percentage:.2f}%) | status: {self.status}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.green()
                 )
                 if original_user.avatar:
@@ -644,7 +644,7 @@ class utility(commands.Cog):
                 embed_status_confirm = discord.Embed(
                     title="approved",
                     description="suggestion approved successfully",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_status_confirm, ephemeral=True)
@@ -657,7 +657,7 @@ class utility(commands.Cog):
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="❯ You don't have the required permissions to use this interaction. (`manage_messsages`)",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -669,7 +669,7 @@ class utility(commands.Cog):
                 embed = discord.Embed(
                     title="Suggestion",
                     description=f"content: {suggestion} | upvotes: {self.upvotes} ({upvotes_percentage:.2f}%) | downvotes: {self.downvotes} ({downvotes_percentage:.2f}%) | status: {self.status}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.red()
                 )
                 if original_user.avatar:
@@ -679,7 +679,7 @@ class utility(commands.Cog):
                 embed_status_confirm = discord.Embed(
                     title="rejected",
                     description="suggestion rejected successfully",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed_status_confirm, ephemeral=True)
@@ -691,7 +691,7 @@ class utility(commands.Cog):
                     embed_ownership = discord.Embed(
                         title="Error! 🚫",
                         description="You cannot interact with your own suggestion.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -702,7 +702,7 @@ class utility(commands.Cog):
         embed_success = discord.Embed(
             title="Suggestion Submitted",
             description="❯ Your suggestion has been submitted successfully.",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed_success)
@@ -728,7 +728,7 @@ class utility(commands.Cog):
                 embed = discord.Embed(
                     title="url shortened",
                     description=f"Shortened URL: {short_url}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral = True)
@@ -736,7 +736,7 @@ class utility(commands.Cog):
                 embed_error = discord.Embed(
                     title="Error! 🚫",
                     description="Failed to shorten the URL.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error, ephemeral = True)
@@ -744,7 +744,7 @@ class utility(commands.Cog):
             embed_error_exc = discord.Embed(
                 title="Error! 🚫",
                 description=f"An error occurred: {str(e)}",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_exc, ephemeral = True)
@@ -771,7 +771,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
             if timestamp_state == "off":
                 embed = discord.Embed(title=title, description=description, color=color)
             if timestamp_state == "on":
-                embed = discord.Embed(title=title, description=description, color=color, timestamp=datetime.datetime.utcnow())
+                embed = discord.Embed(title=title, description=description, color=color, timestamp=datetime.datetime.now(datetime.timezone.utc))
             if fields:
                 field_items = fields.split('|')
                 if len(field_items) % 2 == 0:
@@ -822,7 +822,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
             embed_success = discord.Embed(
                 title="success",
                 description="the embed has been created successfully",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed_success, ephemeral = True)
@@ -830,7 +830,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -857,7 +857,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="Cannot fetch the embed id.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -866,7 +866,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
                 if timestamp_state == "off":
                     embed = discord.Embed(title=title, description=description, color=color)
                 if timestamp_state == "on":
-                    embed = discord.Embed(title=title, description=description, color=color, timestamp=datetime.datetime.utcnow())  
+                    embed = discord.Embed(title=title, description=description, color=color, timestamp=datetime.datetime.now(datetime.timezone.utc))  
                 if fields:
                     field_items = fields.split('|')
                     if len(field_items) % 2 == 0:
@@ -904,7 +904,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
                     embed_error = discord.Embed(
                         title="Error! 🚫",
                         description="Cannot edit the message",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -912,7 +912,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
                 embed_success = discord.Embed(
                     title="Success",
                     description="The embed has been `edited` successfully",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )  
                 await interaction.response.send_message(embed=embed_success)
@@ -920,7 +920,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
                 embed_error_fetch = discord.Embed(
                     title="Error! 🚫",
                     description="❯ invalid id.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_fetch, ephemeral=True)
@@ -928,7 +928,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -937,7 +937,7 @@ class embed_group_utillity(commands.GroupCog, group_name="embed", group_descript
         embed = discord.Embed(
             title="Hex Color Codes pallet",
             description="❯ Here are some colors with their names and hex codes:",
-            timestamp=datetime.datetime.utcnow(),
+            timestamp=datetime.datetime.now(datetime.timezone.utc),
             color=discord.Color.purple()
         )
         for color in color_pallet_codes:
@@ -971,7 +971,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                         embed_error_exis = discord.Embed(
                             title="Error! 🚫",
                             description=f"The tag with the name: **{tag_name}** already exists.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
@@ -998,7 +998,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                 embed = discord.Embed(
                     title="Tag Added",
                     description=embed_desc,
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -1006,7 +1006,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -1035,7 +1035,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                         embed_error_exis = discord.Embed(
                             title="Error! 🚫",
                             description=f"No tags found with name: **{tag_name}**",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
@@ -1046,7 +1046,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                         embed_error_same_content = discord.Embed(
                             title="Error! 🚫",
                             description="The new content is the same as the old content.",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_error_same_content, ephemeral=True)
@@ -1064,7 +1064,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                     embed = discord.Embed(
                         title="Tag Edited ✏️",
                         description=embed_desc,
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     embed.add_field(name="Old Content", value=old_content)
@@ -1074,7 +1074,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -1128,7 +1128,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                         embed_error_exis = discord.Embed(
                             title="Error! 🚫",
                             description=f"No tags found with name: **{tag_name}**",
-                            timestamp=datetime.datetime.utcnow(),
+                            timestamp=datetime.datetime.now(datetime.timezone.utc),
                             color=discord.Color.orange()
                         )
                         await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
@@ -1141,7 +1141,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                     embed = discord.Embed(
                         title="Tag Removed",
                         description=f"The tag with the name: **{tag_name}** has been removed.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.purple()
                     )
                     await interaction.response.send_message(embed=embed)
@@ -1149,7 +1149,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed_error = discord.Embed(
                 title="Error! 🚫",
                 description="❯ You don't have the required permissions to use this command. (`manage_messages`)",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error, ephemeral=True)
@@ -1204,7 +1204,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed_error_exis = discord.Embed(
                 title="Error! 🚫",
                 description=f"No tags found with name: **{tag_name}**",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
@@ -1215,7 +1215,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed = discord.Embed(
                 title="Tag",
                 description=f"{content}",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             await interaction.response.send_message(embed=embed)
@@ -1271,7 +1271,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed_error_exis = discord.Embed(
                 title="Error! 🚫",
                 description="There are no tags available in this server.",
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
             await interaction.response.send_message(embed=embed_error_exis)
@@ -1282,7 +1282,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
             embed = discord.Embed(
                 title=f"List of Tags (found: {len(found_tags)} tag(s))",
                 description="\n".join(tag["tag_name"] for tag in found_tags[i:i + embed_limit]),
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
             embed.set_footer(text="Page {}/{}".format((i // embed_limit) + 1, (len(found_tags) - 1) // embed_limit + 1 if len(found_tags) % embed_limit != 0 else len(found_tags) // embed_limit))
@@ -1361,7 +1361,7 @@ class tag_group_utillity(commands.GroupCog, group_name="tag", group_description=
                     embed_ownership = discord.Embed(
                         title="Error! 🚫",
                         description="You cannot interact with an other member interaction.",
-                        timestamp=datetime.datetime.utcnow(),
+                        timestamp=datetime.datetime.now(datetime.timezone.utc),
                         color=discord.Color.orange()
                     )
                     await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
@@ -1394,20 +1394,20 @@ class afk_group_utillity(commands.GroupCog, group_name="afk", group_description=
                 embed = discord.Embed(
                     title="Error! 🚫",
                     description=f"Your status is already set to afk.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed, ephemeral=True)
             if not result:
                 await cursor.execute(
                     'REPLACE INTO afk (member_id, username, message, timestamp) VALUES (%s, %s, %s, %s)',
-                    (interaction.user.id, interaction.user, message, datetime.datetime.utcnow().isoformat())
+                    (interaction.user.id, interaction.user, message, datetime.datetime.now(datetime.timezone.utc).isoformat())
                 )
                 await conn.commit()
                 embed = discord.Embed(
                     title="AFK",
                     description=f"Status changed to `AFK`.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 embed.add_field(name="Message", value=message)
@@ -1434,7 +1434,7 @@ class afk_group_utillity(commands.GroupCog, group_name="afk", group_description=
                 embed = discord.Embed(
                     title="Welcome back!",
                     description=f"Your `AFK` status has been `removed`. AFK message: {result['message']}, AFK time: {humanize.naturaldelta(datetime.timedelta(seconds=afk_seconds))}",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.purple()
                 )
                 await interaction.response.send_message(embed=embed)
@@ -1442,7 +1442,7 @@ class afk_group_utillity(commands.GroupCog, group_name="afk", group_description=
                 embed_error_exis = discord.Embed(
                     title="Error! 🚫",
                     description="❯ your status is not `afk`.",
-                    timestamp=datetime.datetime.utcnow(),
+                    timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
                 await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
