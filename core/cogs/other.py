@@ -166,7 +166,7 @@ class other(commands.Cog):
     async def reload_all_extensions(self, ctx: commands.Context):
         if ctx.author.id in whitelist:
             try:
-                for filename in os.listdir('C:/Users/ore/Documents/pixel/core/cogs'):
+                for filename in os.listdir(f'{global_path}/core/cogs'):
                     if filename.endswith('.py') and not filename.startswith('startup'):
                         await self.client.reload_extension(filename[:-3])
                         embed = discord.Embed(
