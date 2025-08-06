@@ -25,7 +25,7 @@ color_pallet_codes = [
     {"name": "Pink", "hex": "FFC0CB"},
     {"name": "Brown", "hex": "A52A2A"},
 ]
-current_dir = os.path.dirname(os.path.abspath(ff'{global_path}/core/arial.ttf'))
+current_dir = os.path.dirname(os.path.abspath(f'{global_path}/core/arial.ttf'))
 font_path = os.path.join(current_dir, 'arial.ttf')
 giveaways = {}
 voted_users = {}

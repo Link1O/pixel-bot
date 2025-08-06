@@ -413,7 +413,7 @@ class bot_related(commands.Cog):
             color=discord.Color.purple()
         )
         await interaction.response.send_message(embed=embed)   
-    @app_commands.command(name="server_count", description="displays how much servers the bot is in")
+    @app_commands.command(name="server_count", description="displays how many servers the bot is in")
     async def server_count(self, interacion):
         server_count = len(self.client.guilds)
         embed = discord.Embed(
