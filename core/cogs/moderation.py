@@ -831,7 +831,7 @@ class moderation(commands.Cog):
                 port=db_port,
                 user=db_user,
                 password=db_password,
-                charset=db_charset
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -907,7 +907,7 @@ class moderation(commands.Cog):
                 port=db_port,
                 user=db_user,
                 password=db_password,
-                charset=db_charset
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1045,7 +1045,7 @@ class moderation(commands.Cog):
                 port=db_port,
                 user=db_user,
                 password=db_password,
-                charset=db_charset
+                charset=db_charset,
                 cursorclass=aiomysql.DictCursor
             ) as connection:
                 async with connection.cursor() as cursor:
@@ -1061,7 +1061,7 @@ class moderation(commands.Cog):
                     port=db_port,
                     user=db_user,
                     password=db_password,
-                    charset=db_charset
+                    charset=db_charset,
                     cursorclass=aiomysql.DictCursor
                 ) as connection:
                     async with connection.cursor() as cursor:
