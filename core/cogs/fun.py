@@ -176,198 +176,138 @@ class fun(commands.Cog):
     @app_commands.command(name="marry", description="Marry the chosen member")
     async def marry(self, interaction: discord.Interaction, member: discord.Member):
         author = interaction.user
-        if author.id == member.id:
-            embed_error_self = discord.Embed(
-                title="Error! 🚫",
-                description="You can't marry yourself.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed_error_self, ephemeral=True)
-            return
-        if member.bot:
-            embed_error_memberbot = discord.Embed(
-                title="Error! 🚫",
-                description="You can't marry a bot.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed_error_memberbot, ephemeral = True)
-            return
-        if author.id in married_members:
-            embed_error_exis = discord.Embed(
-                title="Error! 🚫",
-                description="You are already married. You must divorce first.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed_error_exis, ephemeral=True)
-            return
-        if member.id in married_members:
-            embed_error_softdec = discord.Embed(
-                title="Error! 🚫",
-                description="the chosen member is already married.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed_error_softdec, ephemeral=True)
-            return
-        if author.id in married_members.values():
-            embed_error_mar = discord.Embed(
-                title="Error! 🚫",
-                description="You have already accepted a marriage proposal. You must divorce first.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed_error_mar, ephemeral=True)
-            return
-        embed_success = discord.Embed(
-            title="success",
-            description="purposed successfully",
+        conditions = [
+            (author.id == member.id, "You can't marry yourself."),
+            (member.bot, "You can't marry a bot."),
+            (author.id in married_members, "You are already married. You must divorce first."),
+            (member.id in married_members, "The chosen member is already married."),
+            (author.id in married_members.values(), "You have already accepted a marriage proposal. You must divorce first.")
+        ]
+    
+        for condition, message in conditions:
+            if condition:
+                await interaction.response.send_message(embed=discord.Embed(
+                    title="Error! 🚫",
+                    description=message,
+                    timestamp=datetime.datetime.utcnow(),
+                    color=discord.Color.orange()
+                ), ephemeral=True)
+                return
+    
+        await interaction.response.send_message(embed=discord.Embed(
+            title="Success",
+            description="Proposed successfully",
             timestamp=datetime.datetime.utcnow(),
             color=discord.Color.purple()
-        )
-        await interaction.response.send_message(embed=embed_success, ephemeral=True)
-        embed_purposal = discord.Embed(
-            title="proposal",
+        ), ephemeral=True)
+    
+        embed_proposal = discord.Embed(
+            title="Proposal",
             description=f"{author.mention} wants to marry {member.mention}. React with <:discotoolsxyzicon37:1178763859071344701> to accept or <:discotoolsxyzicon38:1178763916914991164> to decline.",
             timestamp=datetime.datetime.utcnow(),
             color=discord.Color.purple()
         )
-        purposal_message = await interaction.channel.send(embed=embed_purposal)
+        proposal_message = await interaction.channel.send(embed=embed_proposal)
+    
         class ButtonView(View):
             def __init__(self, message, author, member, timeout=60):
                 super().__init__(timeout=timeout)
                 self.message = message
                 self.author = author
                 self.member = member
+    
             @discord.ui.button(emoji="<:discotoolsxyzicon37:1178763859071344701>", style=discord.ButtonStyle.secondary)
             async def accept_button(self, interaction: discord.Interaction, button: discord.ui.Button):
                 married_members[author.id] = member.id
                 married_members[member.id] = author.id
-                embed_purposal = discord.Embed(
-                    title="proposal",
-                    description=f"{author.mention} wants to marry {member.mention}. React with <:discotoolsxyzicon37:1178763859071344701> to accept or <:discotoolsxyzicon38:1178763916914991164> to decline.",
-                    timestamp=datetime.datetime.utcnow(),
-                    color=discord.Color.green()
-                )
-                search_term = "anime marry"
-                embed = discord.Embed(
+    
+                embed_success = discord.Embed(
                     title=f"{self.author.display_name} has married {member.display_name}",
                     timestamp=datetime.datetime.utcnow(),
                     color=discord.Color.purple()
                 )
-                embed.set_image(url=await fetch_from_tenor(search_term))
-                for item in view.children:
+                embed_success.set_image(url=await fetch_from_tenor("anime marry"))
+    
+                for item in self.children:
                     item.disabled = True
-                await self.message.edit(embed=embed_purposal, view=view)
-                await interaction.response.send_message(embed=embed)
+    
+                await self.message.edit(embed=embed_proposal, view=self)
+                await interaction.response.send_message(embed=embed_success)
+    
             @discord.ui.button(emoji="<:discotoolsxyzicon38:1178763916914991164>", style=discord.ButtonStyle.secondary)
             async def decline_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-                embed_purposal = discord.Embed(
-                    title="proposal",
-                    description=f"{author.mention} wants to marry {member.mention}. React with <:discotoolsxyzicon37:1178763859071344701> to accept or <:discotoolsxyzicon38:1178763916914991164> to decline.",
-                    timestamp=datetime.datetime.utcnow(),
-                    color=discord.Color.red()
-                )
-                search_term = "anime reject"
                 embed_reject = discord.Embed(
                     title=f"{member.display_name} has rejected {self.author.display_name}",
                     timestamp=datetime.datetime.utcnow(),
                     color=discord.Color.purple()
                 )
-                embed_reject.set_image(url=await fetch_from_tenor(search_term))
-                for item in view.children:
+                embed_reject.set_image(url=await fetch_from_tenor("anime reject"))
+    
+                for item in self.children:
                     item.disabled = True
-                await self.message.edit(embed=embed_purposal, view=view)
+    
+                await self.message.edit(embed=embed_proposal, view=self)
                 await interaction.response.send_message(embed=embed_reject)
+    
             async def interaction_check(self, interaction: discord.Interaction):
                 if interaction.user.id != self.member.id:
-                    embed_ownership = discord.Embed(
+                    await interaction.response.send_message(embed=discord.Embed(
                         title="Error! 🚫",
                         description="You cannot interact with this interaction.",
                         timestamp=datetime.datetime.utcnow(),
                         color=discord.Color.orange()
-                    )
-                    await interaction.response.send_message(embed=embed_ownership, ephemeral=True)
+                    ), ephemeral=True)
                     return False
                 return True
-            async def on_timeout(self) -> None:
+    
+            async def on_timeout(self):
                 await self.message.edit(view=button_view_timeout())
-        view = ButtonView(purposal_message, author, member)
-        await purposal_message.edit(view=view)
-    @marry.error
-    async def marry_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError):
-        if isinstance(error, discord.app_commands.CommandOnCooldown):
-            remaining_time = humanize.naturaldelta(error.retry_after)
-            embed = discord.Embed(
-                title="Cooldown! ⏳",
-                description=f"❯ Please wait {remaining_time} before using this command again.",
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed, ephemeral=True)
-        else:
-            await interaction.response.send_message(f"{str(error)}", ephemeral=True)
+    
+        await proposal_message.edit(view=ButtonView(proposal_message, author, member))
     @app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
     @app_commands.command(name="divorce", description="Divorce your spouse")
     async def divorce(self, interaction: discord.Interaction):
         author = interaction.user
-        if author.id not in married_members:
-            embed_error = discord.Embed(
+        is_married = author.id in married_members
+        if not is_married:
+            await interaction.response.send_message(embed=discord.Embed(
                 title="Error! 🚫",
                 description="You are not married.",
                 timestamp=datetime.datetime.utcnow(),
                 color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed_error)
+            ))
             return
+
         spouse_id = married_members[author.id]
-        spouse = discord.utils.get(self.cliet.get_all_members(), id=spouse_id)
+        spouse = discord.utils.get(self.client.get_all_members(), id=spouse_id)
         del married_members[author.id]
         del married_members[spouse_id]
-        search_term = "anime divorce"
-        embed = discord.Embed(
+
+        await interaction.response.send_message(embed=discord.Embed(
             title="divorce",
             description=f"you are now divorced from {spouse.mention}",
             timestamp=datetime.datetime.utcnow(),
             color=discord.Color.purple()
-        )
-        embed.set_image(url=await fetch_from_tenor(search_term))
-        await interaction.response.send_message(embed=embed)
-    @divorce.error
-    async def divorce_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError):
-        if isinstance(error, discord.app_commands.CommandOnCooldown):
-            remaining_time = humanize.naturaldelta(error.retry_after)
-            embed = discord.Embed(
-                title="Cooldown! ⏳",
-                description=f"❯ Please wait {remaining_time} before using this command again.",
-                color=discord.Color.orange()
-            )
-            await interaction.response.send_message(embed=embed, ephemeral=True)
-        else:
-            await interaction.response.send_message(f"{str(error)}", ephemeral=True)
+        ).set_image(url=await fetch_from_tenor("anime divorce")))
     @app_commands.command(name="marriage_status", description="Check marriage status")
     async def marriage_status(self, interaction: discord.Interaction, member: discord.Member = None):
         author = interaction.user
-        if not member:
-            member = author
+        member = member or author
+        is_self = author.id == member.id
+
         if member.id not in married_members:
-            embed_not_married = discord.Embed(
-                title="Marriage Status",
-                description = f"you are not married" if author.id == member.id else f"{member.mention} is not married.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.purple()
-            )
-            await interaction.response.send_message(embed=embed_not_married)
+            description = "you are not married" if is_self else f"{member.mention} is not married."
         else:
             spouse_id = married_members[member.id]
-            embed_married = discord.Embed(
-                title="Marriage Status",
-                description=f"you are married to <@{spouse_id}>" if author.id == member.id else f"{member.mention} is married to <@{spouse_id}>.",
-                timestamp=datetime.datetime.utcnow(),
-                color=discord.Color.purple()
-            )
-            await interaction.response.send_message(embed=embed_married)
+            description = f"you are married to <@{spouse_id}>" if is_self else f"{member.mention} is married to <@{spouse_id}>."
+
+        embed = discord.Embed(
+            title="Marriage Status",
+            description=description,
+            timestamp=datetime.datetime.utcnow(),
+            color=discord.Color.purple()
+        )
+        await interaction.response.send_message(embed=embed)
     @app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
     @app_commands.command(name="kiss", description="kisses the chosen user")
     async def kiss(self, interaction: discord.Interaction, member: discord.Member):

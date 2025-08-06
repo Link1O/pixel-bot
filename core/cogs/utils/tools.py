@@ -76,12 +76,12 @@ def parse_duration(duration):
         return None
 async def calculate_afk_duration(member_id):
     conn = await aiomysql.connect(
-        host="161.97.78.70",
-        port=3306,
-        user="u38240_JdAbZAvfxO",
-        password="H2wzrrusqEf@Hj7slG1LuKF@",
-        db="s38240_database",
-        charset='utf8mb4',
+        db=db,
+        host=db_host,
+        port=db_port,
+        user=db_user,
+        password=db_password,
+        charset=db_charset,
         cursorclass=aiomysql.DictCursor
     )
     async with conn.cursor() as cursor:

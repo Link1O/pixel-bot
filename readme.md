@@ -32,13 +32,14 @@ Setup:
 
 ---
 
-## **Roadmap**  
-Current focus areas:  
+## **Roadmap**
+Current focus areas:
 - **Data storing transition**: Transitioning from JSON to MySQL in some functionalities (JSON files were just for starters)
 - **Web interface**: Browser-based control panel
-- **Enhanced customization**: More server-specific configuration options  
+- **Enhanced customization**: More server-specific configuration options
+- **Vulnerability hunting**: Looking for vulnerabilities to patch out, increasing the long term reliablility of the bot.
 
 ---
 
-**Contributions welcome**  
+**Contributions welcome**
 Open to suggestions and pull requests. Keep it simple and practical.
