@@ -19,6 +19,7 @@ token_main = os.getenv("TOKEN_MAIN")
 token_testing = os.getenv("TOKEN_TESTING")
 raw_whitelist = os.getenv("whitelist", "")
 whitelist = [int(item.strip()) for item in raw_whitelist.split(",") if item]
+feedback_channel = os.getenv("feedback_channel")
 db = os.getenv("db")
 db_host = os.getenv("db_host")
 db_port = int(os.getenv("db_port"))

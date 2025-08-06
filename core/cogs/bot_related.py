@@ -296,7 +296,7 @@ class bot_related(commands.Cog):
     @app_commands.checks.cooldown(1, 43200, key=lambda i: (i.user.id))
     @app_commands.command(name="feedback", description="sends an feedback to the bot team")
     async def feedback(self, interaction: discord.Interaction, feedback: str):
-        feedback_channel_id = 1164238116949856348
+        feedback_channel_id = feedback_channel
         feedback_channel = self.client.get_channel(feedback_channel_id)
         author_id = interaction.user.id
         embed = discord.Embed(
