@@ -296,8 +296,7 @@ class bot_related(commands.Cog):
     @app_commands.checks.cooldown(1, 43200, key=lambda i: (i.user.id))
     @app_commands.command(name="feedback", description="sends an feedback to the bot team")
     async def feedback(self, interaction: discord.Interaction, feedback: str):
-        feedback_channel_id = feedback_channel
-        feedback_channel = self.client.get_channel(feedback_channel_id)
+        feedback_channel_obj = self.client.get_channel(feedback_channel)
         author_id = interaction.user.id
         embed = discord.Embed(
             title="Feedback Sent Successfully",
@@ -314,7 +313,26 @@ class bot_related(commands.Cog):
         embed_channel.add_field(name="Value", value=f"❯ {feedback}", inline=True)
         embed_channel.add_field(name="Server", value=f"❯ {interaction.guild}", inline=True)
         embed_channel.add_field(name="Sender", value=f"❯ <@{author_id}>[`{author_id}`]", inline=False)
-        await feedback_channel.send(embed=embed_channel)
+        if feedback_channel_obj is None:
+            error_embed = discord.Embed(
+                title="Error! 🚫",
+                description="❯ Feedback channel not found. Please contact the bot owner.",
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
+                color=discord.Color.red()
+            )
+            await interaction.response.send_message(embed=error_embed, ephemeral=True)
+            return
+        try:
+            await feedback_channel_obj.send(embed=embed_channel)
+        except Exception as e:
+            error_embed = discord.Embed(
+                title="Error! 🚫",
+                description=f"❯ Failed to send feedback: {e}",
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
+                color=discord.Color.red()
+            )
+            await interaction.response.send_message(embed=error_embed, ephemeral=True)
+            return
         await interaction.response.send_message(embed=embed)
     @feedback.error
     async def feedback_error(self, interaction: discord.Interaction, error: app_commands.AppCommandError):
