@@ -1,4 +1,4 @@
-## Utility Commands
+# Utility Commands
 
 ## /server_info
 ### Shows basic information about the server
@@ -71,7 +71,7 @@
 
 ---
 
-## Moderation Commands
+# Moderation Commands
 
 ## /purge ...
 ### Deletes messages based on user input
@@ -141,7 +141,7 @@
 
 ---
 
-## Auto-Moderation Commands
+# Auto-Moderation Commands
 
 ## /chat_filter on/off
 ### Turns chat filter on or off
@@ -154,7 +154,7 @@
 
 ---
 
-## Fun Commands
+# Fun Commands
 
 ## /kill ...
 ### Kills the chosen member
@@ -200,7 +200,7 @@
 
 ---
 
-## Bot Related Commands
+# Bot Related Commands
 
 ## /help
 ### View bot commands
