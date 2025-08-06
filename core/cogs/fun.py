@@ -513,7 +513,7 @@ class fun(commands.Cog):
                     color=discord.Color.orange()
                 )
                 await interaction.channel.send(embed_dm_error)
-        if act.lower() == "mute":
+        if act.lower() == "warn":
             embed = discord.Embed(
                 title="member warned",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
