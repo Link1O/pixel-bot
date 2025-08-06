@@ -22,7 +22,7 @@ current_dir = os.path.dirname(os.path.abspath(f'{global_path}/core/arial.ttf'))
 font_path = os.path.join(current_dir, 'arial.ttf')
 class client(commands.AutoShardedBot):
     def __init__(self):
-        super().__init__(shard_count=shards, intents=intents, command_prefix=prefix, help_command=None)
+        super().__init__(shard_count=shards, intents=intents, command_prefix=prefix, help_command=None, allowed_mentions=discord.AllowedMentions(everyone=False, roles=True, users=True))
     async def setup_hook(self):
         start_time = datetime.datetime.now() 
         for filename in os.listdir(f'{global_path}/core/cogs'):
