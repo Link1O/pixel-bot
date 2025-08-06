@@ -1,0 +1,8 @@
+discord.py
+humanize
+requests
+aiomysql
+cryptography
+python-dotenv
+Pillow
+colorama
