@@ -11,6 +11,7 @@ I built Pixel because most bots are either too complicated or missing key featur
 - **Entertainment**: Lightweight fun commands  
 - **Simple Architecture**: Easy to run and modify (aslong as you have some basic python knowledge) 
 
+#### [Commands list here](https://github.com/Link1O/pixel-bot/blob/main/COMMANDS.md)
 ---
 
 ## **Getting Started**  
