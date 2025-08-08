@@ -14,6 +14,8 @@ poster = None
 KITSU_API_URL_ANIME = "https://kitsu.app/api/edge/anime"
 def anime_fetcher(query):
     global poster
+    if not query:
+        return "❌ Please provide a search query."
     params = {
         "filter[text]": query,
         "page[limit]": 1
@@ -42,6 +44,8 @@ def anime_fetcher(query):
 KITSU_API_URL_MANGA = "https://kitsu.io/api/edge/manga"
 def manga_fetcher(query):
     global poster
+    if not query:
+        return "❌ Please provide a search query."
     params = {
         "filter[text]": query,
         "page[limit]": 1
@@ -79,10 +83,10 @@ class fun(commands.Cog):
     @app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
     @app_commands.command(name="kill", description="kills the chosen member")
     async def kill(self, interaction: discord.Interaction, member: discord.Member):
-        if interaction.user.id is member.id:
+        if interaction.user.id == member.id:
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
-                description="❯ you cannot kill your self",
+                description="❯ You cannot kill yourself.",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
@@ -111,10 +115,10 @@ class fun(commands.Cog):
     @app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
     @app_commands.command(name="punch", description="punches the chosen user")
     async def punch(self, interaction: discord.Interaction, member: discord.Member):
-        if interaction.user.id is member.id:
+        if interaction.user.id == member.id:
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
-                description="❯ you cannot punch your self",
+                description="❯ You cannot punch yourself.",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
@@ -143,10 +147,10 @@ class fun(commands.Cog):
     @app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
     @app_commands.command(name="slap", description="slaps the chosen member")
     async def slap(self, interaction: discord.Interaction, member: discord.Member):
-        if interaction.user.id is member.id:
+        if interaction.user.id == member.id:
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
-                description="❯ you cannot slap your self",
+                description="❯ You cannot slap yourself.",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
@@ -311,10 +315,10 @@ class fun(commands.Cog):
     @app_commands.checks.cooldown(1, 5, key=lambda i: (i.user.id))
     @app_commands.command(name="kiss", description="kisses the chosen user")
     async def kiss(self, interaction: discord.Interaction, member: discord.Member):
-        if interaction.user.id is member.id:
+        if interaction.user.id == member.id:
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
-                description="❯ you cannot kiss your self",
+                description="❯ You cannot kiss yourself.",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.purple()
             )
@@ -386,12 +390,12 @@ class fun(commands.Cog):
         else:
             await interaction.response.send_message(f"{str(error)}", ephemeral=True)
     @app_commands.checks.cooldown(1, 180, key=lambda i: (i.user.id))
-    @app_commands.command(name="troll", description="trolls the chosen member using an set of fake moderation commands")
+    @app_commands.command(name="troll", description="trolls the chosen member using a set of fake moderation commands")
     async def troll(self, interaction: discord.Interaction, act:Literal["ban", "kick", "mute", "warn"], member: discord.Member, reason: str = None):
-        if interaction.user is member:
+        if interaction.user.id == member.id:
             embed_error_author = discord.Embed(
                 title="Error! 🚫",
-                description="❯ you cannot troll your self.",
+                description="❯ You cannot troll yourself.",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
@@ -400,7 +404,7 @@ class fun(commands.Cog):
         if member.bot:
             embed_error_bot = discord.Embed(
                 title="Error! 🚫",
-                description="❯ you cannot troll a bot.",
+                description="❯ You cannot troll a bot.",
                 timestamp=datetime.datetime.now(datetime.timezone.utc),
                 color=discord.Color.orange()
             )
@@ -512,7 +516,7 @@ class fun(commands.Cog):
                     timestamp=datetime.datetime.now(datetime.timezone.utc),
                     color=discord.Color.orange()
                 )
-                await interaction.channel.send(embed_dm_error)
+                await interaction.channel.send(embed=embed_dm_error)
         if act.lower() == "warn":
             embed = discord.Embed(
                 title="member warned",
